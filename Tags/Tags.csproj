@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="HTMLTags\Tag.cs" />
+    <Content Include="HTMLTags\InnerHtml.cs" />
+    <Content Include="HTMLTags\Text.cs" />
+    <Content Include="HTMLTags\TagName.cs" />
+    <Content Include="HTMLTags\Div.cs" />
+    <Content Include="HTMLBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+    <Content Include="Exception\InvalidAttribute.cs" />
+    <Content Include="HTMLBuilderTags.cs" />
+    <Content Include="HTMLTags\Attributes\TargetType.cs" />
+    <Content Include="HTMLTags\Attributes\RelType.cs" />
+    <Content Include="HTMLTags\A.cs" />
+    <Content Include="HTMLTags\Attributes\Rel.cs" />
+    <Content Include="HTMLTags\Attributes\Target.cs" />
+    <Content Include="HTMLTags\P.cs" />
+    <Content Include="HTMLTags\Abbr.cs" />
+    <Content Include="HTMLTags\Address.cs" />
+    <Content Include="HTMLTags\Article.cs" />
+    <Content Include="HTMLTags\Aside.cs" />
+    <Content Include="HTMLTags\B.cs" />
+    <Content Include="HTMLTags\Base.cs" />
+    <Content Include="HTMLTags\Bdi.cs" />
+    <Content Include="HTMLTags\Attributes\Dir.cs" />
+    <Content Include="HTMLTags\Bdo.cs" />
+  </ItemGroup>
+</Project>
