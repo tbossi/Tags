@@ -7,21 +7,19 @@ namespace Tags
     public class HTMLBuilder
     {
         private Stack<Tag> _tagTree;
-        private Tag _currentTag;
         private List<Tag> _topLevelTags;
 
         public static HTMLBuilder Tag => new HTMLBuilder();
 
-        public virtual Tag CurrentOpenTag => _tagTree.Peek();
+        public virtual Tag CurrentOpenTag => _tagTree.Count > 0 ? _tagTree.Peek() : null;
 
         private HTMLBuilder()
         {
             _tagTree = new Stack<Tag>();
-            _currentTag = null;
             _topLevelTags = new List<Tag>();
         }
 
-        internal virtual void StoreTag(Tag tag)
+        public virtual void StoreTag(Tag tag)
         {
             if (_tagTree.Count > 0) { CurrentOpenTag.AddInnerHtml(tag); }
             _tagTree.Push(tag);
@@ -29,10 +27,10 @@ namespace Tags
 
         public virtual HTMLBuilder End()
         {
-            _currentTag = _tagTree.Pop();
+            var currentTag = _tagTree.Pop();
             if (_tagTree.Count == 0)
             {
-                _topLevelTags.Add(_currentTag);
+                _topLevelTags.Add(currentTag);
             }
             return this;
         }

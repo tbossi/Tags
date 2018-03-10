@@ -8,9 +8,11 @@
     <PackageReference Include="nunit" Version="3.9.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="Moq" Version="*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tags\Tags.csproj" />
     <Content Include="HTMLBuilderTest.cs" />
+    <Content Include="TestCommons.cs" />
   </ItemGroup>
 </Project>
