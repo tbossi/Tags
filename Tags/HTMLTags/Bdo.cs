@@ -13,12 +13,12 @@ namespace Tags.HTMLTags
             get
             {
                 var tagToBuild = base.GeneratedTag;
-                tagToBuild.MergeAttribute("dir", _dir.ToString("f"));
+                tagToBuild.MergeAttribute("dir", _dir.LiteralValue());
                 return tagToBuild;
             }
         } 
 
-        public Bdo(Dir dir) : base("bdi")
+        public Bdo(Dir dir) : base("bdo")
         {
             _dir = dir;
         }

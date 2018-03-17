@@ -31,5 +31,6 @@
     <Content Include="HTMLTags\Bdi.cs" />
     <Content Include="HTMLTags\Attributes\Dir.cs" />
     <Content Include="HTMLTags\Bdo.cs" />
+    <Content Include="EnumExtensions.cs" />
   </ItemGroup>
 </Project>

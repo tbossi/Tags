@@ -1,5 +1,9 @@
+using System;
+
 namespace Tags.HTMLTags
 {
+
+    [Obsolete("Remove when every tag is implemented")]
     public class TagName
     {
         public readonly string Name;

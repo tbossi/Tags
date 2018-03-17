@@ -19,8 +19,8 @@ namespace Tags.HTMLTags
                 var tag = base.GeneratedTag;
                 if (!string.IsNullOrEmpty(_href)) { tag.MergeAttribute("href", _href); }
                 if (_newFileName != null) { tag.MergeAttribute("download", _newFileName); }
-                if (_rel.HasValue) { tag.MergeAttribute("rel", _rel.Value.ToString("f")); }
-                if (_target.HasValue) { tag.MergeAttribute("target", _target.Value.ToString("f")); }
+                if (_rel.HasValue) { tag.MergeAttribute("rel", _rel.Value.LiteralValue()); }
+                if (_target.HasValue) { tag.MergeAttribute("target", _target.Value.LiteralValue()); }
 
                 return tag;
             }

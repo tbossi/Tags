@@ -14,5 +14,17 @@
     <ProjectReference Include="..\Tags\Tags.csproj" />
     <Content Include="HTMLBuilderTest.cs" />
     <Content Include="TestCommons.cs" />
+    <Content Include="HTMLTags\TextTest.cs" />
+    <Content Include="HTMLTags\TagTest.cs" />
+    <Content Include="TestTag.cs" />
+    <Content Include="HTMLTags\PTest.cs" />
+    <Content Include="HTMLTags\DivTest.cs" />
+    <Content Include="HTMLTags\BdoTest.cs" />
+    <Content Include="HTMLTags\BdiTest.cs" />
+    <Content Include="HTMLTags\BTest.cs" />
+    <Content Include="HTMLTags\AsideTest.cs" />
+    <Content Include="HTMLTags\ArticleTest.cs" />
+    <Content Include="HTMLTags\AddressTest.cs" />
+    <Content Include="HTMLTags\AbbrTest.cs" />
   </ItemGroup>
 </Project>

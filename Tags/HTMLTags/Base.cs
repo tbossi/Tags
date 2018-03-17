@@ -16,7 +16,7 @@ namespace Tags.HTMLTags
             {
                 var tag = base.GeneratedTag;
                 if (!string.IsNullOrEmpty(_href)) { tag.MergeAttribute("href", _href); }
-                if (_target.HasValue) { tag.MergeAttribute("target", _target.Value.ToString("f")); }
+                if (_target.HasValue) { tag.MergeAttribute("target", _target.Value.LiteralValue()); }
 
                 return tag;
             }
