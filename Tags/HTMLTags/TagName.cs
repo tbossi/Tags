@@ -26,7 +26,7 @@ namespace Tags.HTMLTags
         //public static TagName Bdo => new TagName("bdo");
         public static TagName Blink => new TagName("blink");
         public static TagName Blockquote => new TagName("blockquote");
-        public static TagName Body => new TagName("body");
+        //public static TagName Body => new TagName("body");
         public static TagName Br => new TagName("br");
         public static TagName Button => new TagName("button");
         public static TagName Canvas => new TagName("canvas");

@@ -29,6 +29,7 @@ namespace Tags
         public static HTMLBuilder Base(this HTMLBuilder builder, Target target) => AddTagIfAllowed(builder, new Base(target));
         public static HTMLBuilder Bdi(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Bdi());
         public static HTMLBuilder Bdo(this HTMLBuilder builder, Dir dir) => AddTagIfAllowed(builder, new Bdo(dir));
+        public static HTMLBuilder Body(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Body());
         public static HTMLBuilder Div(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Div());
         public static HTMLBuilder P(this HTMLBuilder builder) => AddTagIfAllowed(builder, new P());
     }
@@ -48,9 +49,9 @@ namespace Tags
 
         public static HTMLBuilder Rel(this HTMLBuilder builder, Rel rel)
         {
-            if (builder.CurrentOpenTag is A)
+            if (builder.CurrentOpenTag is IRelable)
             {
-                (builder.CurrentOpenTag as A).AddRel(rel);
+                (builder.CurrentOpenTag as IRelable).AddRel(rel);
                 return builder;
             }
 
@@ -59,9 +60,9 @@ namespace Tags
 
         public static HTMLBuilder Target(this HTMLBuilder builder, Target target)
         {
-            if (builder.CurrentOpenTag is A)
+            if (builder.CurrentOpenTag is ITargetable)
             {
-                (builder.CurrentOpenTag as A).AddTarget(target);
+                (builder.CurrentOpenTag as ITargetable).AddTarget(target);
                 return builder;
             }
 

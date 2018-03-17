@@ -3,7 +3,7 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class A : Tag
+    public class A : Tag, IRelable, ITargetable
     {
         private readonly string _href;
         private string _newFileName;
@@ -31,17 +31,17 @@ namespace Tags.HTMLTags
             _href = href;
         }
 
-        public void AddDownload(string newFileName)
+        public virtual void AddDownload(string newFileName)
         {
             _newFileName = newFileName;
         }
 
-        public void AddRel(Rel rel)
+        public virtual void AddRel(Rel rel)
         {
             _rel = rel;
         }
 
-        public void AddTarget(Target target)
+        public virtual void AddTarget(Target target)
         {
             _target = target;
         }

@@ -17,7 +17,7 @@ namespace Tags.HTMLTags
             return HttpUtility.HtmlEncode(_text);
         }
 
-        public bool Equals(Text other)
+        public virtual bool Equals(Text other)
         {
             return _text == other._text;
         }

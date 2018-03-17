@@ -26,5 +26,6 @@
     <Content Include="HTMLTags\ArticleTest.cs" />
     <Content Include="HTMLTags\AddressTest.cs" />
     <Content Include="HTMLTags\AbbrTest.cs" />
+    <Content Include="HTMLTags\BodyTest.cs" />
   </ItemGroup>
 </Project>
