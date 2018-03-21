@@ -38,9 +38,9 @@ namespace Tags
     {
         public static HTMLBuilder Download(this HTMLBuilder builder, string filename = "")
         {
-            if (builder.CurrentOpenTag is A)
+            if (builder.CurrentOpenTag is A tag)
             {
-                (builder.CurrentOpenTag as A).AddDownload(filename);
+                tag.AddDownload(filename);
                 return builder;
             }
 
@@ -49,9 +49,9 @@ namespace Tags
 
         public static HTMLBuilder Rel(this HTMLBuilder builder, Rel rel)
         {
-            if (builder.CurrentOpenTag is IRelable)
+            if (builder.CurrentOpenTag is IRelable tag)
             {
-                (builder.CurrentOpenTag as IRelable).AddRel(rel);
+                tag.AddRel(rel);
                 return builder;
             }
 
@@ -60,9 +60,9 @@ namespace Tags
 
         public static HTMLBuilder Target(this HTMLBuilder builder, Target target)
         {
-            if (builder.CurrentOpenTag is ITargetable)
+            if (builder.CurrentOpenTag is ITargetable tag)
             {
-                (builder.CurrentOpenTag as ITargetable).AddTarget(target);
+                tag.AddTarget(target);
                 return builder;
             }
 
