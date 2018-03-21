@@ -30,8 +30,20 @@ namespace Tags
         public static HTMLBuilder Bdi(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Bdi());
         public static HTMLBuilder Bdo(this HTMLBuilder builder, Dir dir) => AddTagIfAllowed(builder, new Bdo(dir));
         public static HTMLBuilder Body(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Body());
+        public static HTMLBuilder Br(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Br());
         public static HTMLBuilder Div(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Div());
+        public static HTMLBuilder H1(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H1());
+        public static HTMLBuilder H2(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H2());
+        public static HTMLBuilder H3(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H3());
+        public static HTMLBuilder H4(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H4());
+        public static HTMLBuilder H5(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H5());
+        public static HTMLBuilder H6(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H6());
+        public static HTMLBuilder Head(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Head());
         public static HTMLBuilder P(this HTMLBuilder builder) => AddTagIfAllowed(builder, new P());
+        public static HTMLBuilder Pre(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Pre());
+        public static HTMLBuilder Span(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Span());
+        public static HTMLBuilder Table(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Table());
+        public static HTMLBuilder Title(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Title());
     }
 
     public static class HTMLBuilderAttributes

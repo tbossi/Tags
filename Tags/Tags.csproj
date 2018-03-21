@@ -35,5 +35,19 @@
     <Content Include="HTMLTags\Attributes\IRelable.cs" />
     <Content Include="HTMLTags\Attributes\ITargetable.cs" />
     <Content Include="HTMLTags\Body.cs" />
+    <Content Include="HTMLTags\Br.cs" />
+    <Content Include="HTMLTags\H6.cs" />
+    <Content Include="HTMLTags\H5.cs" />
+    <Content Include="HTMLTags\H4.cs" />
+    <Content Include="HTMLTags\H3.cs" />
+    <Content Include="HTMLTags\H2.cs" />
+    <Content Include="HTMLTags\H1.cs" />
+    <Content Include="HTMLTags\Head.cs" />
+    <Content Include="HTMLTags\Header.cs" />
+    <Content Include="HTMLTags\Hr.cs" />
+    <Content Include="HTMLTags\Pre.cs" />
+    <Content Include="HTMLTags\Span.cs" />
+    <Content Include="HTMLTags\Title.cs" />
+    <Content Include="HTMLTags\Table.cs" />
   </ItemGroup>
 </Project>

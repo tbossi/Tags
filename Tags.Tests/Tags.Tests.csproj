@@ -27,5 +27,19 @@
     <Content Include="HTMLTags\AddressTest.cs" />
     <Content Include="HTMLTags\AbbrTest.cs" />
     <Content Include="HTMLTags\BodyTest.cs" />
+    <Content Include="HTMLTags\BrTest.cs" />
+    <Content Include="HTMLTags\H1Test.cs" />
+    <Content Include="HTMLTags\H6Test.cs" />
+    <Content Include="HTMLTags\H5Test.cs" />
+    <Content Include="HTMLTags\H4Test.cs" />
+    <Content Include="HTMLTags\H3Test.cs" />
+    <Content Include="HTMLTags\H2Test.cs" />
+    <Content Include="HTMLTags\HeadTest.cs" />
+    <Content Include="HTMLTags\HrTest.cs" />
+    <Content Include="HTMLTags\HeaderTest.cs" />
+    <Content Include="HTMLTags\PreTest.cs" />
+    <Content Include="HTMLTags\SpanTest.cs" />
+    <Content Include="HTMLTags\TitleTest.cs" />
+    <Content Include="HTMLTags\TableTest.cs" />
   </ItemGroup>
 </Project>
