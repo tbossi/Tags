@@ -29,6 +29,7 @@ namespace Tags
         public static HTMLBuilder Base(this HTMLBuilder builder, Target target) => AddTagIfAllowed(builder, new Base(target));
         public static HTMLBuilder Bdi(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Bdi());
         public static HTMLBuilder Bdo(this HTMLBuilder builder, Dir dir) => AddTagIfAllowed(builder, new Bdo(dir));
+        public static HTMLBuilder Blockquote(this HTMLBuilder builder, string cite = "") => AddTagIfAllowed(builder, new Blockquote(cite));
         public static HTMLBuilder Body(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Body());
         public static HTMLBuilder Br(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Br());
         public static HTMLBuilder Div(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Div());
@@ -39,6 +40,10 @@ namespace Tags
         public static HTMLBuilder H5(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H5());
         public static HTMLBuilder H6(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H6());
         public static HTMLBuilder Head(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Head());
+        public static HTMLBuilder I(this HTMLBuilder builder) => AddTagIfAllowed(builder, new I());
+        public static HTMLBuilder Legend(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Legend());
+        public static HTMLBuilder Mark(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Mark());
+        public static HTMLBuilder Noscript(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Noscript());
         public static HTMLBuilder P(this HTMLBuilder builder) => AddTagIfAllowed(builder, new P());
         public static HTMLBuilder Pre(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Pre());
         public static HTMLBuilder Span(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Span());

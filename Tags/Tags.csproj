@@ -49,5 +49,10 @@
     <Content Include="HTMLTags\Span.cs" />
     <Content Include="HTMLTags\Title.cs" />
     <Content Include="HTMLTags\Table.cs" />
+    <Content Include="HTMLTags\Blockquote.cs" />
+    <Content Include="HTMLTags\I.cs" />
+    <Content Include="HTMLTags\Legend.cs" />
+    <Content Include="HTMLTags\Mark.cs" />
+    <Content Include="HTMLTags\Noscript.cs" />
   </ItemGroup>
 </Project>

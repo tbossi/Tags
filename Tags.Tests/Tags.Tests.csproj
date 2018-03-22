@@ -41,5 +41,10 @@
     <Content Include="HTMLTags\SpanTest.cs" />
     <Content Include="HTMLTags\TitleTest.cs" />
     <Content Include="HTMLTags\TableTest.cs" />
+    <Content Include="HTMLTags\BlockquoteTest.cs" />
+    <Content Include="HTMLTags\ITest.cs" />
+    <Content Include="HTMLTags\LegendTest.cs" />
+    <Content Include="HTMLTags\MarkTest.cs" />
+    <Content Include="HTMLTags\NoscriptTest.cs" />
   </ItemGroup>
 </Project>
