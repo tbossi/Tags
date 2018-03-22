@@ -32,7 +32,19 @@ namespace Tags
         public static HTMLBuilder Blockquote(this HTMLBuilder builder, string cite = "") => AddTagIfAllowed(builder, new Blockquote(cite));
         public static HTMLBuilder Body(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Body());
         public static HTMLBuilder Br(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Br());
+        public static HTMLBuilder Caption(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Caption());
+        public static HTMLBuilder Cite(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Cite());
+        public static HTMLBuilder Code(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Code());
+        public static HTMLBuilder Datalist(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Datalist());
+        public static HTMLBuilder Dd(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Dd());
+        public static HTMLBuilder Dfn(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Dfn());
         public static HTMLBuilder Div(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Div());
+        public static HTMLBuilder Dl(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Dl());
+        public static HTMLBuilder Dt(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Dt());
+        public static HTMLBuilder Em(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Em());
+        public static HTMLBuilder Figcaption(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Figcaption());
+        public static HTMLBuilder Figure(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Figure());
+        public static HTMLBuilder Footer(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Footer());
         public static HTMLBuilder H1(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H1());
         public static HTMLBuilder H2(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H2());
         public static HTMLBuilder H3(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H3());
@@ -41,14 +53,37 @@ namespace Tags
         public static HTMLBuilder H6(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H6());
         public static HTMLBuilder Head(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Head());
         public static HTMLBuilder I(this HTMLBuilder builder) => AddTagIfAllowed(builder, new I());
+        public static HTMLBuilder Kbd(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Kbd());
         public static HTMLBuilder Legend(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Legend());
+        public static HTMLBuilder Main(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Main());
         public static HTMLBuilder Mark(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Mark());
+        public static HTMLBuilder Nav(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Nav());
         public static HTMLBuilder Noscript(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Noscript());
         public static HTMLBuilder P(this HTMLBuilder builder) => AddTagIfAllowed(builder, new P());
+        public static HTMLBuilder Picture(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Picture());
         public static HTMLBuilder Pre(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Pre());
+        public static HTMLBuilder Rp(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Rp());
+        public static HTMLBuilder Rt(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Rt());
+        public static HTMLBuilder Ruby(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Ruby());
+        public static HTMLBuilder S(this HTMLBuilder builder) => AddTagIfAllowed(builder, new S());
+        public static HTMLBuilder Samp(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Samp());
+        public static HTMLBuilder Section(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Section());
+        public static HTMLBuilder Small(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Small());
         public static HTMLBuilder Span(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Span());
+        public static HTMLBuilder Strong(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Strong());
+        public static HTMLBuilder Sub(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Sub());
+        public static HTMLBuilder Summary(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Summary());
+        public static HTMLBuilder Sup(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Sup());
         public static HTMLBuilder Table(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Table());
+        public static HTMLBuilder Tbody(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Tbody());
+        public static HTMLBuilder Template(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Template());
+        public static HTMLBuilder Tfoot(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Tfoot());
+        public static HTMLBuilder Thead(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Thead());
         public static HTMLBuilder Title(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Title());
+        public static HTMLBuilder Tr(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Tr());
+        public static HTMLBuilder U(this HTMLBuilder builder) => AddTagIfAllowed(builder, new U());
+        public static HTMLBuilder Ul(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Ul());
+        public static HTMLBuilder Var(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Var());
     }
 
     public static class HTMLBuilderAttributes
