@@ -1,6 +1,6 @@
 namespace Tags.HTMLTags.Attributes
 {
-    public interface IRelable
+    public interface SupportRelAttribute
     {
         void AddRel(Rel rel);
     }

@@ -1,3 +1,4 @@
+using System;
 using Tags.Exception;
 using Tags.HTMLTags;
 using Tags.HTMLTags.Attributes;
@@ -32,7 +33,10 @@ namespace Tags
         public static HTMLBuilder Blockquote(this HTMLBuilder builder, string cite = "") => AddTagIfAllowed(builder, new Blockquote(cite));
         public static HTMLBuilder Body(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Body());
         public static HTMLBuilder Br(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Br());
+        public static HTMLBuilder Canvas(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Canvas());
         public static HTMLBuilder Caption(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Caption());
+        public static HTMLBuilder Col(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Col());
+        public static HTMLBuilder Colgroup(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Colgroup());
         public static HTMLBuilder Cite(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Cite());
         public static HTMLBuilder Code(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Code());
         public static HTMLBuilder Datalist(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Datalist());
@@ -88,37 +92,34 @@ namespace Tags
 
     public static class HTMLBuilderAttributes
     {
+        public static HTMLBuilder AddAttribute<T>(HTMLBuilder builder, string attributeName,
+            Action<T> attributeAdder)
+        {
+            if (builder.CurrentOpenTag is T tag)
+            {
+                attributeAdder.Invoke(tag);
+                return builder;
+            }
+
+            throw new InvalidAttribute(attributeName, builder.CurrentOpenTag);
+        }
+
         public static HTMLBuilder Download(this HTMLBuilder builder, string filename = "")
-        {
-            if (builder.CurrentOpenTag is A tag)
-            {
-                tag.AddDownload(filename);
-                return builder;
-            }
-
-            throw new InvalidAttribute("download", builder.CurrentOpenTag);
-        }
-
+            => AddAttribute<A>(builder, "download", tag => tag.AddDownload(filename));
+        
+        public static HTMLBuilder Height(this HTMLBuilder builder, int height)
+            => AddAttribute<SupportHeightAttribute>(builder, "height", tag => tag.AddHeight(height));
+        
         public static HTMLBuilder Rel(this HTMLBuilder builder, Rel rel)
-        {
-            if (builder.CurrentOpenTag is IRelable tag)
-            {
-                tag.AddRel(rel);
-                return builder;
-            }
-
-            throw new InvalidAttribute("rel", builder.CurrentOpenTag);
-        }
-
+            => AddAttribute<SupportRelAttribute>(builder, "rel", tag => tag.AddRel(rel));
+        
+        public static HTMLBuilder Span(this HTMLBuilder builder, int span)
+            => AddAttribute<SupportSpanAttribute>(builder, "span", tag => tag.AddSpan(span));
+        
         public static HTMLBuilder Target(this HTMLBuilder builder, Target target)
-        {
-            if (builder.CurrentOpenTag is ITargetable tag)
-            {
-                tag.AddTarget(target);
-                return builder;
-            }
+            => AddAttribute<SupportTargetAttribute>(builder, "target", tag => tag.AddTarget(target));
 
-            throw new InvalidAttribute("target", builder.CurrentOpenTag);
-        }
+        public static HTMLBuilder Width(this HTMLBuilder builder, int width)
+            => AddAttribute<SupportWidthAttribute>(builder, "width", tag => tag.AddWidth(width));
     }
 }

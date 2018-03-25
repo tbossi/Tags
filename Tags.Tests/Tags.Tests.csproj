@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsPackable>false</IsPackable>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="nunit" Version="3.9.0" />
@@ -81,5 +82,9 @@
     <Content Include="HTMLTags\RubyTest.cs" />
     <Content Include="HTMLTags\VarTest.cs" />
     <Content Include="HTMLTags\UlTest.cs" />
+    <Content Include="HTMLTags\ATest.cs" />
+    <Content Include="HTMLTags\CanvasTest.cs" />
+    <Content Include="HTMLTags\ColTest.cs" />
+    <Content Include="HTMLTags\ColgroupTest.cs" />
   </ItemGroup>
 </Project>

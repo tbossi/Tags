@@ -1,6 +1,6 @@
 namespace Tags.HTMLTags.Attributes
 {
-    public interface ITargetable
+    public interface SupportTargetAttribute
     {
         void AddTarget(Target target);
     }

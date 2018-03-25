@@ -3,7 +3,7 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class A : Tag, IRelable, ITargetable
+    public class A : Tag, SupportRelAttribute, SupportTargetAttribute
     {
         private readonly string _href;
         private string _newFileName;
