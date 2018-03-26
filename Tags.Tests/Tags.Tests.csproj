@@ -86,5 +86,14 @@
     <Content Include="HTMLTags\CanvasTest.cs" />
     <Content Include="HTMLTags\ColTest.cs" />
     <Content Include="HTMLTags\ColgroupTest.cs" />
+    <Content Include="HTMLTags\EmbedTest.cs" />
+    <Content Include="HTMLTags\HtmlTest.cs" />
+    <Content Include="HTMLTags\IframeTest.cs" />
+    <Content Include="HTMLTags\InsTest.cs" />
+    <Content Include="HTMLTags\DelTest.cs" />
+    <Content Include="HTMLTags\QTest.cs" />
+    <Content Include="HTMLTags\LiTest.cs" />
+    <Content Include="HTMLTags\TimeTest.cs" />
+    <Content Include="HTMLTags\WbrTest.cs" />
   </ItemGroup>
 </Project>

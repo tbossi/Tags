@@ -97,5 +97,20 @@
     <Content Include="HTMLTags\Attributes\SupportSpanAttribute.cs" />
     <Content Include="HTMLTags\Col.cs" />
     <Content Include="HTMLTags\Colgroup.cs" />
+    <Content Include="HTMLTags\Attributes\SupportMIMETypeAttribute.cs" />
+    <Content Include="HTMLTags\Embed.cs" />
+    <Content Include="HTMLTags\Html.cs" />
+    <Content Include="HTMLTags\Attributes\SupportNameAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\Sandbox.cs" />
+    <Content Include="HTMLTags\Iframe.cs" />
+    <Content Include="HTMLTags\Attributes\SupportDatetimeAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportCiteAttribute.cs" />
+    <Content Include="HTMLTags\Ins.cs" />
+    <Content Include="HTMLTags\Del.cs" />
+    <Content Include="HTMLTags\Q.cs" />
+    <Content Include="HTMLTags\Attributes\SupportNumberValueAttribute.cs" />
+    <Content Include="HTMLTags\Li.cs" />
+    <Content Include="HTMLTags\Time.cs" />
+    <Content Include="HTMLTags\Wbr.cs" />
   </ItemGroup>
 </Project>

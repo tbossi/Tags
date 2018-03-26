@@ -3,7 +3,7 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Blockquote : Tag, SupportCiteAttribute
+    public class Q : Tag, SupportCiteAttribute
     {
         private string _cite;
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
@@ -18,7 +18,7 @@ namespace Tags.HTMLTags
             }
         }
 
-        public Blockquote() : base("blockquote") { }
+        public Q() : base("q") { }
 
         public void AddCite(string cite)
         {

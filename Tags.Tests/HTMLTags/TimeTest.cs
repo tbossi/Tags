@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
 using Tags.Test;
@@ -6,21 +7,22 @@ namespace Tags.Tests.HTMLTags
 {
     [TestFixture]
     [Category(TestCommons.CategoryUnitTest)]
-    public class BlockquoteTest
+    public class TimeTest
     {
-        private readonly Blockquote tag = new Blockquote();
+        private readonly Time tag = new Time();
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<blockquote></blockquote>");
+            Assert.AreEqual(tag.ToString(), "<time></time>");
         }
 
         [Test]
-        public void AddCite()
+        public void AddDatetime()
         {
-            tag.AddCite("http://something");
-            Assert.AreEqual(tag.ToString(), "<blockquote cite=\"http://something\"></blockquote>");
+            var date = new DateTime();
+            tag.AddDatetime(date);
+            Assert.AreEqual(tag.ToString(), $"<time datetime=\"{date.ToString("u")}\"></time>");
         }
 
         [Test]

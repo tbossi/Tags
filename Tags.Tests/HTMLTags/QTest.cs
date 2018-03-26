@@ -6,21 +6,21 @@ namespace Tags.Tests.HTMLTags
 {
     [TestFixture]
     [Category(TestCommons.CategoryUnitTest)]
-    public class BlockquoteTest
+    public class QTest
     {
-        private readonly Blockquote tag = new Blockquote();
+        private readonly Q tag = new Q();
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<blockquote></blockquote>");
+            Assert.AreEqual(tag.ToString(), "<q></q>");
         }
 
         [Test]
         public void AddCite()
         {
             tag.AddCite("http://something");
-            Assert.AreEqual(tag.ToString(), "<blockquote cite=\"http://something\"></blockquote>");
+            Assert.AreEqual(tag.ToString(), "<q cite=\"http://something\"></q>");
         }
 
         [Test]
