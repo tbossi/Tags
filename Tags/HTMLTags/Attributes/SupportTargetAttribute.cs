@@ -1,7 +1,12 @@
 namespace Tags.HTMLTags.Attributes
 {
-    public interface SupportTargetAttribute
+    public interface SupportTargetAttribute : ITag { }
+
+    public static class TargetAttribute
     {
-        void AddTarget(Target target);
+        public static void AddTarget(this SupportTargetAttribute tag, Target target)
+        {
+            tag.TagBuilder.MergeAttribute("target", target.LiteralValue());
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -9,33 +10,31 @@ namespace Tags.Tests.HTMLTags
     [Category(TestCommons.CategoryUnitTest)]
     public class DelTest
     {
-        private readonly Del tag = new Del();
+        private Del _tag;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _tag = new Del();
+        }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<del></del>");
+            Assert.AreEqual(_tag.ToString(), "<del></del>");
         }
 
-        [Test]
-        public void AddCite()
+        [TestCase(typeof(SupportCiteAttribute))]
+        [TestCase(typeof(SupportDatetimeAttribute))]
+        public void SupportedAttributes(Type supportedType)
         {
-            tag.AddCite("http://url");
-            Assert.AreEqual(tag.ToString(), "<del cite=\"http://url\"></del>");
-        }
-
-        [Test]
-        public void AddDatetime()
-        {
-            var date = new DateTime();
-            tag.AddDatetime(date);
-            Assert.AreEqual(tag.ToString(), $"<del datetime=\"{date.ToString("u")}\"></del>");
+            Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
         }
     }
 }

@@ -8,158 +8,540 @@ namespace Tags
 {
     public static class HTMLBuilderTags
     {
-        public static HTMLBuilder AddTagIfAllowed<T>(HTMLBuilder builder, T tagToAdd) where T : Tag
+        public static HTMLBuilder<T, HTMLBuilder<X, Y>> AddNormalTagIfAllowed<T, X, Y>(HTMLBuilder<X, Y> builder, T tagToAdd)
+            where T : Tag
+            where X : Tag
+            where Y : HTMLBuilder
         {
-            if (builder.CurrentOpenTag == null)
+            if (builder.CurrentTag == null)
             {
-                StoreTag(builder, tagToAdd);
-                return builder;
+                return StoreNormalTag(builder, tagToAdd);
             }
 
-            StoreTag(builder, tagToAdd);
-            return builder;
-            //throw new ArgumentException($"Cannot place {tagToAdd} inside {builder.CurrentOpenTag}");
+            //if tag is inside something
+            return StoreNormalTag(builder, tagToAdd);
         }
 
-        private static void StoreTag<T>(HTMLBuilder builder, T tagToAdd) where T : Tag
+        private static HTMLBuilder<T, HTMLBuilder<X, Y>> StoreNormalTag<T, X, Y>(HTMLBuilder<X, Y> builder, T tagToAdd)
+            where T : Tag
+            where X : Tag
+            where Y : HTMLBuilder
         {
-            builder.StoreTag(tagToAdd);
-            if (tagToAdd.TagRenderMode != TagRenderMode.Normal)
-            {
-                builder.End();
-            }
+            return builder.StoreTag(tagToAdd);
         }
 
-        public static HTMLBuilder A(this HTMLBuilder builder, string href) => AddTagIfAllowed(builder, new A(href));
-        public static HTMLBuilder Abbr(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Abbr());
-        public static HTMLBuilder Address(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Address());
-        public static HTMLBuilder Article(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Article());
-        public static HTMLBuilder Aside(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Aside());
-        public static HTMLBuilder B(this HTMLBuilder builder) => AddTagIfAllowed(builder, new B());
-        public static HTMLBuilder Base(this HTMLBuilder builder, string href, Target? target = null) => AddTagIfAllowed(builder, new Base(href, target));
-        public static HTMLBuilder Base(this HTMLBuilder builder, Target target) => AddTagIfAllowed(builder, new Base(target));
-        public static HTMLBuilder Bdi(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Bdi());
-        public static HTMLBuilder Bdo(this HTMLBuilder builder, Dir dir) => AddTagIfAllowed(builder, new Bdo(dir));
-        public static HTMLBuilder Blockquote(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Blockquote());
-        public static HTMLBuilder Body(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Body());
-        public static HTMLBuilder Br(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Br());
-        public static HTMLBuilder Canvas(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Canvas());
-        public static HTMLBuilder Caption(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Caption());
-        public static HTMLBuilder Col(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Col());
-        public static HTMLBuilder Colgroup(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Colgroup());
-        public static HTMLBuilder Cite(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Cite());
-        public static HTMLBuilder Code(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Code());
-        public static HTMLBuilder Datalist(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Datalist());
-        public static HTMLBuilder Dd(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Dd());
-        public static HTMLBuilder Del(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Del());
-        public static HTMLBuilder Dfn(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Dfn());
-        public static HTMLBuilder Div(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Div());
-        public static HTMLBuilder Dl(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Dl());
-        public static HTMLBuilder Dt(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Dt());
-        public static HTMLBuilder Em(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Em());
-        public static HTMLBuilder Embed(this HTMLBuilder builder, string src) => AddTagIfAllowed(builder, new Embed(src));
-        public static HTMLBuilder Figcaption(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Figcaption());
-        public static HTMLBuilder Figure(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Figure());
-        public static HTMLBuilder Footer(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Footer());
-        public static HTMLBuilder H1(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H1());
-        public static HTMLBuilder H2(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H2());
-        public static HTMLBuilder H3(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H3());
-        public static HTMLBuilder H4(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H4());
-        public static HTMLBuilder H5(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H5());
-        public static HTMLBuilder H6(this HTMLBuilder builder) => AddTagIfAllowed(builder, new H6());
-        public static HTMLBuilder Head(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Head());
-        public static HTMLBuilder Html(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Html());
-        public static HTMLBuilder I(this HTMLBuilder builder) => AddTagIfAllowed(builder, new I());
-        public static HTMLBuilder Ins(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Ins());
-        public static HTMLBuilder Iframe(this HTMLBuilder builder, string src) => AddTagIfAllowed(builder, new Iframe(src));
-        public static HTMLBuilder Kbd(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Kbd());
-        public static HTMLBuilder Legend(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Legend());
-        public static HTMLBuilder Li(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Li());
-        public static HTMLBuilder Main(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Main());
-        public static HTMLBuilder Mark(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Mark());
-        public static HTMLBuilder Nav(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Nav());
-        public static HTMLBuilder Noscript(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Noscript());
-        public static HTMLBuilder P(this HTMLBuilder builder) => AddTagIfAllowed(builder, new P());
-        public static HTMLBuilder Picture(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Picture());
-        public static HTMLBuilder Pre(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Pre());
-        public static HTMLBuilder Q(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Q());
-        public static HTMLBuilder Rp(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Rp());
-        public static HTMLBuilder Rt(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Rt());
-        public static HTMLBuilder Ruby(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Ruby());
-        public static HTMLBuilder S(this HTMLBuilder builder) => AddTagIfAllowed(builder, new S());
-        public static HTMLBuilder Samp(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Samp());
-        public static HTMLBuilder Section(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Section());
-        public static HTMLBuilder Small(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Small());
-        public static HTMLBuilder Span(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Span());
-        public static HTMLBuilder Strong(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Strong());
-        public static HTMLBuilder Sub(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Sub());
-        public static HTMLBuilder Summary(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Summary());
-        public static HTMLBuilder Sup(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Sup());
-        public static HTMLBuilder Table(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Table());
-        public static HTMLBuilder Tbody(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Tbody());
-        public static HTMLBuilder Template(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Template());
-        public static HTMLBuilder Tfoot(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Tfoot());
-        public static HTMLBuilder Thead(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Thead());
-        public static HTMLBuilder Time(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Time());
-        public static HTMLBuilder Title(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Title());
-        public static HTMLBuilder Tr(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Tr());
-        public static HTMLBuilder U(this HTMLBuilder builder) => AddTagIfAllowed(builder, new U());
-        public static HTMLBuilder Ul(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Ul());
-        public static HTMLBuilder Var(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Var());
-        public static HTMLBuilder Wbr(this HTMLBuilder builder) => AddTagIfAllowed(builder, new Wbr());
+        public static HTMLBuilder<X, Y> AddAutocloseTagIfAllowed<T, X, Y>(HTMLBuilder<X, Y> builder, T tagToAdd)
+            where T : Tag
+            where X : Tag
+            where Y : HTMLBuilder
+        {
+            if (builder.CurrentTag == null)
+            {
+                return StoreAutocloseTag(builder, tagToAdd);
+            }
+
+            //if tag is inside something
+            return StoreAutocloseTag(builder, tagToAdd);
+        }
+
+        private static HTMLBuilder<X, Y> StoreAutocloseTag<T, X, Y>(HTMLBuilder<X, Y> builder, T tagToAdd)
+            where T : Tag
+            where X : Tag
+            where Y : HTMLBuilder
+        {
+            return builder.StoreTag(tagToAdd).End();
+        }
+
+        public static HTMLBuilder<A, HTMLBuilder<X, Y>> A<X, Y>(this HTMLBuilder<X, Y> builder, string href)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new A(href));
+
+        public static HTMLBuilder<Abbr, HTMLBuilder<X, Y>> Abbr<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Abbr());
+
+        public static HTMLBuilder<Address, HTMLBuilder<X, Y>> Address<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Address());
+
+        public static HTMLBuilder<Article, HTMLBuilder<X, Y>> Article<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Article());
+
+        public static HTMLBuilder<Aside, HTMLBuilder<X, Y>> Aside<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Aside());
+
+        public static HTMLBuilder<B, HTMLBuilder<X, Y>> B<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new B());
+
+        public static HTMLBuilder<X, Y> Base<X, Y>(this HTMLBuilder<X, Y> builder, string href, Target? target = null)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddAutocloseTagIfAllowed(builder, new Base(href, target));
+
+        public static HTMLBuilder<X, Y> Base<X, Y>(this HTMLBuilder<X, Y> builder, Target target)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddAutocloseTagIfAllowed(builder, new Base(target));
+
+        public static HTMLBuilder<Bdi, HTMLBuilder<X, Y>> Bdi<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Bdi());
+
+        public static HTMLBuilder<Bdo, HTMLBuilder<X, Y>> Bdo<X, Y>(this HTMLBuilder<X, Y> builder, Dir dir)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Bdo(dir));
+
+        public static HTMLBuilder<Blockquote, HTMLBuilder<X, Y>> Blockquote<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Blockquote());
+
+        public static HTMLBuilder<Body, HTMLBuilder<X, Y>> Body<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Body());
+
+        public static HTMLBuilder<X, Y> Br<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddAutocloseTagIfAllowed(builder, new Br());
+
+        public static HTMLBuilder<Canvas, HTMLBuilder<X, Y>> Canvas<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Canvas());
+
+        public static HTMLBuilder<Caption, HTMLBuilder<X, Y>> Caption<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Caption());
+
+        public static HTMLBuilder<Col, HTMLBuilder<X, Y>> Col<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Col());
+
+        public static HTMLBuilder<Colgroup, HTMLBuilder<X, Y>> Colgroup<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Colgroup());
+
+        public static HTMLBuilder<Cite, HTMLBuilder<X, Y>> Cite<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Cite());
+
+        public static HTMLBuilder<Code, HTMLBuilder<X, Y>> Code<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Code());
+
+        public static HTMLBuilder<Datalist, HTMLBuilder<X, Y>> Datalist<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Datalist());
+
+        public static HTMLBuilder<Dd, HTMLBuilder<X, Y>> Dd<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Dd());
+
+        public static HTMLBuilder<Del, HTMLBuilder<X, Y>> Del<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Del());
+
+        public static HTMLBuilder<Dfn, HTMLBuilder<X, Y>> Dfn<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Dfn());
+
+        public static HTMLBuilder<Div, HTMLBuilder<X, Y>> Div<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Div());
+
+        public static HTMLBuilder<Dl, HTMLBuilder<X, Y>> Dl<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Dl());
+
+        public static HTMLBuilder<Dt, HTMLBuilder<X, Y>> Dt<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Dt());
+
+        public static HTMLBuilder<Em, HTMLBuilder<X, Y>> Em<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Em());
+
+        public static HTMLBuilder<X, Y> Embed<X, Y>(this HTMLBuilder<X, Y> builder, string src)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddAutocloseTagIfAllowed(builder, new Embed(src));
+
+        public static HTMLBuilder<Figcaption, HTMLBuilder<X, Y>> Figcaption<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Figcaption());
+
+        public static HTMLBuilder<Figure, HTMLBuilder<X, Y>> Figure<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Figure());
+
+        public static HTMLBuilder<Footer, HTMLBuilder<X, Y>> Footer<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Footer());
+
+        public static HTMLBuilder<H1, HTMLBuilder<X, Y>> H1<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new H1());
+
+        public static HTMLBuilder<H2, HTMLBuilder<X, Y>> H2<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new H2());
+
+        public static HTMLBuilder<H3, HTMLBuilder<X, Y>> H3<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new H3());
+
+        public static HTMLBuilder<H4, HTMLBuilder<X, Y>> H4<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new H4());
+
+        public static HTMLBuilder<H5, HTMLBuilder<X, Y>> H5<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new H5());
+
+        public static HTMLBuilder<H6, HTMLBuilder<X, Y>> H6<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new H6());
+
+        public static HTMLBuilder<Head, HTMLBuilder<X, Y>> Head<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Head());
+
+        public static HTMLBuilder<Html, HTMLBuilder<X, Y>> Html<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Html());
+
+        public static HTMLBuilder<I, HTMLBuilder<X, Y>> I<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new I());
+
+        public static HTMLBuilder<Ins, HTMLBuilder<X, Y>> Ins<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Ins());
+
+        public static HTMLBuilder<Iframe, HTMLBuilder<X, Y>> Iframe<X, Y>(this HTMLBuilder<X, Y> builder, string src)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Iframe(src));
+
+        public static HTMLBuilder<Kbd, HTMLBuilder<X, Y>> Kbd<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Kbd());
+
+        public static HTMLBuilder<Legend, HTMLBuilder<X, Y>> Legend<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Legend());
+
+        public static HTMLBuilder<Li, HTMLBuilder<X, Y>> Li<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Li());
+
+        public static HTMLBuilder<Main, HTMLBuilder<X, Y>> Main<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Main());
+
+        public static HTMLBuilder<Mark, HTMLBuilder<X, Y>> Mark<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Mark());
+
+        public static HTMLBuilder<Nav, HTMLBuilder<X, Y>> Nav<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Nav());
+
+        public static HTMLBuilder<Noscript, HTMLBuilder<X, Y>> Noscript<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Noscript());
+
+        public static HTMLBuilder<P, HTMLBuilder<X, Y>> P<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new P());
+
+        public static HTMLBuilder<Picture, HTMLBuilder<X, Y>> Picture<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Picture());
+
+        public static HTMLBuilder<Pre, HTMLBuilder<X, Y>> Pre<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Pre());
+
+        public static HTMLBuilder<Q, HTMLBuilder<X, Y>> Q<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Q());
+
+        public static HTMLBuilder<Rp, HTMLBuilder<X, Y>> Rp<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Rp());
+
+        public static HTMLBuilder<Rt, HTMLBuilder<X, Y>> Rt<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Rt());
+
+        public static HTMLBuilder<Ruby, HTMLBuilder<X, Y>> Ruby<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Ruby());
+
+        public static HTMLBuilder<S, HTMLBuilder<X, Y>> S<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new S());
+
+        public static HTMLBuilder<Samp, HTMLBuilder<X, Y>> Samp<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Samp());
+
+        public static HTMLBuilder<Section, HTMLBuilder<X, Y>> Section<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Section());
+
+        public static HTMLBuilder<Small, HTMLBuilder<X, Y>> Small<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Small());
+
+        public static HTMLBuilder<Span, HTMLBuilder<X, Y>> Span<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Span());
+
+        public static HTMLBuilder<Strong, HTMLBuilder<X, Y>> Strong<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Strong());
+
+        public static HTMLBuilder<Sub, HTMLBuilder<X, Y>> Sub<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Sub());
+
+        public static HTMLBuilder<Summary, HTMLBuilder<X, Y>> Summary<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Summary());
+
+        public static HTMLBuilder<Sup, HTMLBuilder<X, Y>> Sup<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Sup());
+
+        public static HTMLBuilder<Table, HTMLBuilder<X, Y>> Table<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Table());
+
+        public static HTMLBuilder<Tbody, HTMLBuilder<X, Y>> Tbody<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Tbody());
+
+        public static HTMLBuilder<Template, HTMLBuilder<X, Y>> Template<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Template());
+
+        public static HTMLBuilder<Tfoot, HTMLBuilder<X, Y>> Tfoot<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Tfoot());
+
+        public static HTMLBuilder<Thead, HTMLBuilder<X, Y>> Thead<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Thead());
+
+        public static HTMLBuilder<Time, HTMLBuilder<X, Y>> Time<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Time());
+
+        public static HTMLBuilder<Title, HTMLBuilder<X, Y>> Title<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Title());
+
+        public static HTMLBuilder<Tr, HTMLBuilder<X, Y>> Tr<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Tr());
+
+        public static HTMLBuilder<U, HTMLBuilder<X, Y>> U<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new U());
+
+        public static HTMLBuilder<Ul, HTMLBuilder<X, Y>> Ul<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Ul());
+
+        public static HTMLBuilder<Var, HTMLBuilder<X, Y>> Var<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddNormalTagIfAllowed(builder, new Var());
+
+        public static HTMLBuilder<X, Y> Wbr<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => AddAutocloseTagIfAllowed(builder, new Wbr());
     }
 
     public static class HTMLBuilderAttributes
     {
-        public static HTMLBuilder AddAttribute<T>(HTMLBuilder builder, string attributeName,
-            Action<T> attributeAdder)
+        public static HTMLBuilder<X, Y> Cite<X, Y>(this HTMLBuilder<X, Y> builder, string cite)
+            where X : Tag, SupportCiteAttribute
+            where Y : HTMLBuilder
         {
-            if (builder.CurrentOpenTag is T tag)
-            {
-                attributeAdder.Invoke(tag);
-                return builder;
-            }
-
-            throw new InvalidAttribute(attributeName, builder.CurrentOpenTag);
+            builder.CurrentTag.AddCite(cite);
+            return builder;
         }
 
-        public static HTMLBuilder Cite(this HTMLBuilder builder, string cite)
-            => AddAttribute<SupportCiteAttribute>(builder, "cite", tag => tag.AddCite(cite));
+        public static HTMLBuilder<X, Y> Datetime<X, Y>(this HTMLBuilder<X, Y> builder, DateTime datetime)
+            where X : Tag, SupportDatetimeAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddDatetime(datetime);
+            return builder;
+        }
 
-        public static HTMLBuilder Datetime(this HTMLBuilder builder, DateTime datetime)
-            => AddAttribute<SupportDatetimeAttribute>(builder, "datetime", tag => tag.AddDatetime(datetime));
+        public static HTMLBuilder<X, Y> Download<X, Y>(this HTMLBuilder<X, Y> builder, string filename = "")
+            where X : A
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddDownload(filename);
+            return builder;
+        }
 
-        public static HTMLBuilder Download(this HTMLBuilder builder, string filename = "")
-            => AddAttribute<A>(builder, "download", tag => tag.AddDownload(filename));
+        public static HTMLBuilder<X, Y> Height<X, Y>(this HTMLBuilder<X, Y> builder, int height)
+            where X : Tag, SupportHeightAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddHeight(height);
+            return builder;
+        }
 
-        public static HTMLBuilder Height(this HTMLBuilder builder, int height)
-            => AddAttribute<SupportHeightAttribute>(builder, "height", tag => tag.AddHeight(height));
+        public static HTMLBuilder<X, Y> Name<X, Y>(this HTMLBuilder<X, Y> builder, string name)
+            where X : Tag, SupportNameAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddName(name);
+            return builder;
+        }
 
-        public static HTMLBuilder Name(this HTMLBuilder builder, string name)
-            => AddAttribute<SupportNameAttribute>(builder, "name", tag => tag.AddName(name));
+        public static HTMLBuilder<X, Y> Rel<X, Y>(this HTMLBuilder<X, Y> builder, Rel rel)
+            where X : Tag, SupportRelAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddRel(rel);
+            return builder;
+        }
 
-        public static HTMLBuilder Rel(this HTMLBuilder builder, Rel rel)
-            => AddAttribute<SupportRelAttribute>(builder, "rel", tag => tag.AddRel(rel));
+        public static HTMLBuilder<X, Y> Sandbox<X, Y>(this HTMLBuilder<X, Y> builder, params Sandbox[] sandbox)
+            where X : Iframe
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddSandbox(sandbox);
+            return builder;
+        }
 
-        public static HTMLBuilder Sandbox(this HTMLBuilder builder, params Sandbox[] sandbox)
-            => AddAttribute<Iframe>(builder, "sandbox", tag => tag.AddSandbox(sandbox));
+        public static HTMLBuilder<X, Y> Span<X, Y>(this HTMLBuilder<X, Y> builder, int span)
+            where X : Tag, SupportSpanAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddSpan(span);
+            return builder;
+        }
 
-        public static HTMLBuilder Span(this HTMLBuilder builder, int span)
-            => AddAttribute<SupportSpanAttribute>(builder, "span", tag => tag.AddSpan(span));
+        public static HTMLBuilder<X, Y> Srcdoc<X, Y>(this HTMLBuilder<X, Y> builder, string srcdoc)
+            where X : Iframe
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddSrcdoc(srcdoc);
+            return builder;
+        }
 
-        public static HTMLBuilder Srcdoc(this HTMLBuilder builder, string srcdoc)
-            => AddAttribute<Iframe>(builder, "srcdoc", tag => tag.AddSrcdoc(srcdoc));
+        public static HTMLBuilder<X, Y> Target<X, Y>(this HTMLBuilder<X, Y> builder, Target target)
+            where X : Tag, SupportTargetAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddTarget(target);
+            return builder;
+        }
 
-        public static HTMLBuilder Target(this HTMLBuilder builder, Target target)
-            => AddAttribute<SupportTargetAttribute>(builder, "target", tag => tag.AddTarget(target));
+        public static HTMLBuilder<X, Y> Type<X, Y>(this HTMLBuilder<X, Y> builder, string type)
+            where X : Tag, SupportMIMETypeAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddType(type);
+            return builder;
+        }
 
-        public static HTMLBuilder Type(this HTMLBuilder builder, string type)
-            => AddAttribute<SupportMIMETypeAttribute>(builder, "type", tag => tag.AddType(type));
+        public static HTMLBuilder<X, Y> Value<X, Y>(this HTMLBuilder<X, Y> builder, int value)
+            where X : Tag, SupportNumberValueAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddValue(value);
+            return builder;
+        }
 
-        public static HTMLBuilder Value(this HTMLBuilder builder, int value)
-            => AddAttribute<SupportNumberValueAttribute>(builder, "value", tag => tag.AddValue(value));
-
-        public static HTMLBuilder Width(this HTMLBuilder builder, int width)
-            => AddAttribute<SupportWidthAttribute>(builder, "width", tag => tag.AddWidth(width));
+        public static HTMLBuilder<X, Y> Width<X, Y>(this HTMLBuilder<X, Y> builder, int width)
+            where X : Tag, SupportWidthAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddWidth(width);
+            return builder;
+        }
     }
 }

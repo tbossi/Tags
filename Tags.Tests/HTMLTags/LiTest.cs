@@ -1,5 +1,7 @@
+using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -8,25 +10,30 @@ namespace Tags.Tests.HTMLTags
     [Category(TestCommons.CategoryUnitTest)]
     public class LiTest
     {
-        private readonly Li tag = new Li();
+        private Li _tag;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _tag = new Li();
+        }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<li></li>");
+            Assert.AreEqual(_tag.ToString(), "<li></li>");
         }
 
-        [Test]
-        public void AddValue()
+        [TestCase(typeof(SupportNumberValueAttribute))]
+        public void SupportedAttributes(Type supportedType)
         {
-            tag.AddValue(5);
-            Assert.AreEqual(tag.ToString(), "<li value=\"5\"></li>");
+            Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
         }
     }
 }

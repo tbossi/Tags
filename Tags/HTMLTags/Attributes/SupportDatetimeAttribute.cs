@@ -2,8 +2,13 @@ using System;
 
 namespace Tags.HTMLTags.Attributes
 {
-    public interface SupportDatetimeAttribute
+    public interface SupportDatetimeAttribute : ITag { }
+
+    public static class DatetimeAttribute
     {
-        void AddDatetime(DateTime datetime);
+        public static void AddDatetime(this SupportDatetimeAttribute tag, DateTime datetime)
+        {
+            tag.TagBuilder.MergeAttribute("datetime", datetime.ToString("u"));
+        }
     }
 }

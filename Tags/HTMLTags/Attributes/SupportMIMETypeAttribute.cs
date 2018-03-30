@@ -1,7 +1,15 @@
+using System;
+
 namespace Tags.HTMLTags.Attributes
 {
-    public interface SupportMIMETypeAttribute
+    public interface SupportMIMETypeAttribute : ITag { }
+
+    public static class MIMETypeAttribute
     {
-        void AddType(string type);
+        public static void AddType(this SupportMIMETypeAttribute tag, string type)
+        {
+            if (string.IsNullOrEmpty(type)) { throw new ArgumentException(); }
+            tag.TagBuilder.MergeAttribute("type", type);
+        }
     }
 }

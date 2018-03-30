@@ -1,5 +1,7 @@
+using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -8,32 +10,31 @@ namespace Tags.Tests.HTMLTags
     [Category(TestCommons.CategoryUnitTest)]
     public class CanvasTest
     {
-        private readonly Canvas tag = new Canvas();
+        private Canvas _tag;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _tag = new Canvas();
+        }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<canvas></canvas>");
+            Assert.AreEqual(_tag.ToString(), "<canvas></canvas>");
         }
 
-        [Test]
-        public void AddHeight()
+        [TestCase(typeof(SupportHeightAttribute))]
+        [TestCase(typeof(SupportWidthAttribute))]
+        public void SupportedAttributes(Type supportedType)
         {
-            tag.AddHeight(500);
-            Assert.AreEqual(tag.ToString(), "<canvas height=\"500\"></canvas>");
-        }
-
-        [Test]
-        public void AddWidth()
-        {
-            tag.AddWidth(987);
-            Assert.AreEqual(tag.ToString(), "<canvas width=\"987\"></canvas>");
+            Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
         }
     }
 }

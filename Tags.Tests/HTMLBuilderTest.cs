@@ -2,6 +2,8 @@ using System;
 using System.Linq.Expressions;
 using Moq;
 using NUnit.Framework;
+using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using static Tags.HTMLBuilder;
 
 namespace Tags.Test
@@ -10,63 +12,50 @@ namespace Tags.Test
     [Category(TestCommons.CategoryUnitTest)]
     public class HTMLBuilderTest
     {
-        private HTMLBuilder _htmlTag;
+        private HTMLBuilder<Tag, HTMLBuilder> _htmlTag;
 
         [SetUp]
         public void SetUp()
         {
-            _htmlTag = Tag;
+            _htmlTag = HTMLBuilder.Tag;
         }
 
         [Test]
         public void Tags()
         {
-            var tag2 = Tag;
+            var tag2 = HTMLBuilder.Tag;
             Assert.AreNotEqual(_htmlTag, tag2);
         }
 
         [Test]
-        public void CurrentOpenTag()
+        public void StoreTag()
         {
-            var tag = new Mock<HTMLTags.Tag>("tagfortest");
+            var tagToStore = new Mock<Tag>("test");
+            var newBuilder = _htmlTag.StoreTag(tagToStore.Object);
 
-            Assert.Null(_htmlTag.CurrentOpenTag);
-            _htmlTag.StoreTag(tag.Object);
-            Assert.AreEqual(_htmlTag.CurrentOpenTag, tag.Object);
+            Assert.AreEqual(newBuilder.CurrentTag, tagToStore.Object);
+        }
+
+        [Test]
+        public void End_ThrowsException()
+        {
+            Assert.Throws<NullReferenceException>(() => _htmlTag.End());
         }
 
         [Test]
         public void End()
         {
-            Assert.Null(_htmlTag.CurrentOpenTag);
-            _htmlTag.StoreTag(null);
-            var actualHtmlTag = _htmlTag.End();
+            var tagToStore = new Mock<Tag>("test");
+            var newBuilder = _htmlTag.StoreTag(tagToStore.Object);
 
-            Assert.AreEqual(actualHtmlTag, _htmlTag);
-            Assert.Null(_htmlTag.CurrentOpenTag);
+            Assert.AreEqual(_htmlTag, newBuilder.End());
         }
 
         [Test]
         public void EndAll()
         {
-            var outerTag = new Mock<HTMLTags.Tag>("outerTag");
-            var innerTag = new Mock<HTMLTags.Tag>("innerTag");
-
-            Assert.Null(_htmlTag.CurrentOpenTag);
-
-            outerTag.Setup(t => t.AddInnerHtml(innerTag.Object)).Verifiable();
-            innerTag.Setup(t => t.AddInnerHtml(It.IsAny<HTMLTags.Tag>())).Verifiable();
-
-            _htmlTag.StoreTag(outerTag.Object);
-            _htmlTag.StoreTag(innerTag.Object);
-            _htmlTag.StoreTag(null);
-            var actualHtmlTag = _htmlTag.EndAll();
-
-            Assert.AreEqual(actualHtmlTag, _htmlTag);
-            Assert.Null(_htmlTag.CurrentOpenTag);
-
-            outerTag.VerifyAll();
-            innerTag.VerifyAll();
+            Assert.Fail();
+            //TODO
         }
 
         [Test]
@@ -124,7 +113,7 @@ namespace Tags.Test
             CommonAssert(builder => builder.Title(title), t => t.AddTitle(title));
         }
 
-        private void CommonAssert(Func<HTMLBuilder, HTMLBuilder> actionToTest, Expression<Action<HTMLTags.Tag>> actionToVerify)
+        private void CommonAssert(Func<HTMLBuilder<Tag, HTMLBuilder>, HTMLBuilder<Tag, HTMLBuilder>> actionToTest, Expression<Action<HTMLTags.Tag>> actionToVerify)
         {
             var tag = new Mock<HTMLTags.Tag>("tagForTest");
 

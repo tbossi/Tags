@@ -1,5 +1,7 @@
+using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -8,39 +10,32 @@ namespace Tags.Tests.HTMLTags
     [Category(TestCommons.CategoryUnitTest)]
     public class EmbedTest
     {
-        private readonly Embed tag = new Embed("http://src");
+        private Embed _tag;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _tag = new Embed("http://src");
+        }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<embed src=\"http://src\">");
+            Assert.AreEqual(_tag.ToString(), "<embed src=\"http://src\">");
         }
 
-        [Test]
-        public void AddHeight()
+        [TestCase(typeof(SupportHeightAttribute))]
+        [TestCase(typeof(SupportWidthAttribute))]
+        [TestCase(typeof(SupportMIMETypeAttribute))]
+        public void SupportedAttributes(Type supportedType)
         {
-            tag.AddHeight(500);
-            Assert.AreEqual(tag.ToString(), "<embed src=\"http://src\" height=\"500\">");
-        }
-
-        [Test]
-        public void AddWidth()
-        {
-            tag.AddWidth(987);
-            Assert.AreEqual(tag.ToString(), "<embed src=\"http://src\" width=\"987\">");
-        }
-
-        [Test]
-        public void AddType()
-        {
-            tag.AddType("mime/type");
-            Assert.AreEqual(tag.ToString(), "<embed src=\"http://src\" type=\"mime/type\">");
+            Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(tag.TagRenderMode, System.Web.Mvc.TagRenderMode.StartTag);
+            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.StartTag);
         }
     }
 }

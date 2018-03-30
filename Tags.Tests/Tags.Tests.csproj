@@ -95,5 +95,17 @@
     <Content Include="HTMLTags\LiTest.cs" />
     <Content Include="HTMLTags\TimeTest.cs" />
     <Content Include="HTMLTags\WbrTest.cs" />
+    <Content Include="HTMLTags\Attributes\GlobalAttributesTest.cs" />
+    <Content Include="HTMLTags\Attributes\AttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\CiteAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\HeightAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\WidthAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\SpanAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\DatetimeAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\NumberValueAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\MIMETypeAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\NameAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\RelAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\AltAttributeTest.cs" />
   </ItemGroup>
 </Project>

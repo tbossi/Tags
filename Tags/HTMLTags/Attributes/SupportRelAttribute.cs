@@ -1,7 +1,12 @@
 namespace Tags.HTMLTags.Attributes
 {
-    public interface SupportRelAttribute
+    public interface SupportRelAttribute : ITag { }
+
+    public static class RelAttribute
     {
-        void AddRel(Rel rel);
+        public static void AddRel(this SupportRelAttribute tag, Rel rel)
+        {
+            tag.TagBuilder.MergeAttribute("rel", rel.LiteralValue());
+        }
     }
 }

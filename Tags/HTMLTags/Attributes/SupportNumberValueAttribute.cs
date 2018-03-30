@@ -1,7 +1,15 @@
+using System;
+
 namespace Tags.HTMLTags.Attributes
 {
-    public interface SupportNumberValueAttribute
+    public interface SupportNumberValueAttribute : ITag { }
+
+    public static class NumberValueAttribute
     {
-        void AddValue(int value);
+        public static void AddValue(this SupportNumberValueAttribute tag, int value)
+        {
+            if (value < 0) { throw new ArgumentException(); }
+            tag.TagBuilder.MergeAttribute("value", value.ToString());
+        }
     }
 }

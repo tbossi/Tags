@@ -1,7 +1,15 @@
+using System;
+
 namespace Tags.HTMLTags.Attributes
 {
-    public interface SupportHeightAttribute
+    public interface SupportHeightAttribute : ITag { }
+
+    public static class HeightAttribute
     {
-        void AddHeight(int height);
+        public static void AddHeight(this SupportHeightAttribute tag, int height)
+        {
+            if (height < 0) { throw new ArgumentException(); }
+            tag.TagBuilder.MergeAttribute("height", height.ToString());
+        }
     }
 }

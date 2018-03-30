@@ -5,6 +5,6 @@ namespace Tags.HTMLTags
     public class Wbr : Tag
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
-        public Wbr() : base("Wbr") { }
+        public Wbr() : base("wbr") { }
     }
 }

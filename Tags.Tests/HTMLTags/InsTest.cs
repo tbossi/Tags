@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -9,33 +10,31 @@ namespace Tags.Tests.HTMLTags
     [Category(TestCommons.CategoryUnitTest)]
     public class InsTest
     {
-        private readonly Ins tag = new Ins();
+        private Ins _tag;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _tag = new Ins();
+        }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<ins></ins>");
+            Assert.AreEqual(_tag.ToString(), "<ins></ins>");
         }
 
-        [Test]
-        public void AddCite()
+        [TestCase(typeof(SupportCiteAttribute))]
+        [TestCase(typeof(SupportDatetimeAttribute))]
+        public void SupportedAttributes(Type supportedType)
         {
-            tag.AddCite("http://url");
-            Assert.AreEqual(tag.ToString(), "<ins cite=\"http://url\"></ins>");
-        }
-
-        [Test]
-        public void AddDatetime()
-        {
-            var date = new DateTime();
-            tag.AddDatetime(date);
-            Assert.AreEqual(tag.ToString(), $"<ins datetime=\"{date.ToString("u")}\"></ins>");
+            Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
         }
     }
 }

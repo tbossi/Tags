@@ -1,87 +1,102 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 
 namespace Tags
 {
-    public class HTMLBuilder
+    public abstract class HTMLBuilder
     {
-        private Stack<Tag> _tagTree;
-        private List<Tag> _topLevelTags;
+        public static HTMLBuilder<Tag, HTMLBuilder> Tag => new HTMLBuilder<Tag, HTMLBuilder>(null, null);
 
-        public static HTMLBuilder Tag => new HTMLBuilder();
+        private List<Tag> _storedTags;
 
-        public virtual Tag CurrentOpenTag => _tagTree.Count > 0 ? _tagTree.Peek() : null;
-
-        private HTMLBuilder()
+        public HTMLBuilder()
         {
-            _tagTree = new Stack<Tag>();
-            _topLevelTags = new List<Tag>();
+            _storedTags = new List<Tag>();
         }
 
-        public virtual void StoreTag(Tag tag)
+        protected void StoreTag(Tag tag)
         {
-            if (_tagTree.Count > 0) { CurrentOpenTag.AddInnerHtml(tag); }
-            _tagTree.Push(tag);
+            _storedTags.Add(tag);
         }
 
-        public virtual HTMLBuilder End()
-        {
-            var currentTag = _tagTree.Pop();
-            if (_tagTree.Count == 0)
-            {
-                _topLevelTags.Add(currentTag);
-            }
-            return this;
-        }
-
-        public virtual HTMLBuilder EndAll()
-        {
-            while (_tagTree.Count > 0) { End(); }
-            return this;
-        }
-
-        public virtual HTMLBuilder InnerHTML(params Tag[] innerHtml)
-        {
-            CurrentOpenTag.AddInnerHtml(innerHtml);
-            return this;
-        }
-
-        public virtual HTMLBuilder InnerText(string text)
-        {
-            CurrentOpenTag.AddInnerHtml(new Text(text));
-            return this;
-        }
-
-        public virtual HTMLBuilder Class(params string[] classes)
-        {
-            CurrentOpenTag.AddClasses(classes);
-            return this;
-        }
-
-        public virtual HTMLBuilder Id(string id)
-        {
-            CurrentOpenTag.AddId(id);
-            return this;
-        }
-
-        public virtual HTMLBuilder Data(string key, string value)
-        {
-            CurrentOpenTag.AddData(key, value);
-            return this;
-        }
-
-        public virtual HTMLBuilder Title(string title)
-        {
-            CurrentOpenTag.AddTitle(title);
-            return this;
-        }
-
-        public override string ToString()
+        public override sealed string ToString()
         {
             var sb = new StringBuilder();
-            _topLevelTags.ForEach(t => sb.Append(t));
+            _storedTags.ForEach(t => sb.Append(t));
             return sb.ToString();
+        }
+    }
+
+    public class HTMLBuilder<CurrentTagType, ParentBuilderType> : HTMLBuilder
+        where CurrentTagType : Tag
+        where ParentBuilderType : HTMLBuilder
+    {
+        private readonly ParentBuilderType _parentTag;
+        public CurrentTagType CurrentTag { get; }
+
+        internal HTMLBuilder(CurrentTagType currentTag, ParentBuilderType parentTag) : base()
+        {
+            CurrentTag = currentTag;
+            _parentTag = parentTag;
+        }
+
+        public virtual HTMLBuilder<T, HTMLBuilder<CurrentTagType, ParentBuilderType>> StoreTag<T>(T tag) where T : Tag
+        {
+            base.StoreTag(tag);
+            return new HTMLBuilder<T, HTMLBuilder<CurrentTagType, ParentBuilderType>>(tag, this);
+        }
+
+        public virtual ParentBuilderType End()
+        {
+            if (_parentTag == null) { throw new NullReferenceException(); }
+            return _parentTag;
+        }
+
+        public virtual HTMLBuilder<Tag, HTMLBuilder> EndAll()
+        {
+            // hack to avoid generic types checking
+            dynamic x = _parentTag;
+            while (x != null) { x = x.End(); }
+            return x;
+        }
+
+        public virtual HTMLBuilder<CurrentTagType, ParentBuilderType> InnerHTML(params Tag[] innerHtml)
+        {
+            CurrentTag.AddInnerHtml(innerHtml);
+            return this;
+        }
+
+        public virtual HTMLBuilder<CurrentTagType, ParentBuilderType> InnerText(string text)
+        {
+            CurrentTag.AddInnerHtml(new Text(text));
+            return this;
+        }
+
+        public virtual HTMLBuilder<CurrentTagType, ParentBuilderType> Class(params string[] classes)
+        {
+            CurrentTag.AddClasses(classes);
+            return this;
+        }
+
+        public virtual HTMLBuilder<CurrentTagType, ParentBuilderType> Id(string id)
+        {
+            CurrentTag.AddId(id);
+            return this;
+        }
+
+        public virtual HTMLBuilder<CurrentTagType, ParentBuilderType> Data(string key, string value)
+        {
+            CurrentTag.AddData(key, value);
+            return this;
+        }
+
+        public virtual HTMLBuilder<CurrentTagType, ParentBuilderType> Title(string title)
+        {
+            CurrentTag.AddTitle(title);
+            return this;
         }
     }
 }

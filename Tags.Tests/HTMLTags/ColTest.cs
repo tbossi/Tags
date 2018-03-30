@@ -1,5 +1,7 @@
+using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -8,25 +10,30 @@ namespace Tags.Tests.HTMLTags
     [Category(TestCommons.CategoryUnitTest)]
     public class ColTest
     {
-        private readonly Col tag = new Col();
+        private Col _tag;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _tag = new Col();
+        }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<col></col>");
+            Assert.AreEqual(_tag.ToString(), "<col></col>");
         }
 
-        [Test]
-        public void AddSpan()
+        [TestCase(typeof(SupportSpanAttribute))]
+        public void SupportedAttributes(Type supportedType)
         {
-            tag.AddSpan(3);
-            Assert.AreEqual(tag.ToString(), "<col span=\"3\"></col>");
+            Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
         }
     }
 }

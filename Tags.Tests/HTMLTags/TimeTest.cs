@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -9,26 +10,30 @@ namespace Tags.Tests.HTMLTags
     [Category(TestCommons.CategoryUnitTest)]
     public class TimeTest
     {
-        private readonly Time tag = new Time();
+        private Time _tag;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _tag = new Time();
+        }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<time></time>");
+            Assert.AreEqual(_tag.ToString(), "<time></time>");
         }
 
-        [Test]
-        public void AddDatetime()
+        [TestCase(typeof(SupportDatetimeAttribute))]
+        public void SupportedAttributes(Type supportedType)
         {
-            var date = new DateTime();
-            tag.AddDatetime(date);
-            Assert.AreEqual(tag.ToString(), $"<time datetime=\"{date.ToString("u")}\"></time>");
+            Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
         }
     }
 }

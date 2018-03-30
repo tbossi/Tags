@@ -1,5 +1,7 @@
+using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -8,25 +10,30 @@ namespace Tags.Tests.HTMLTags
     [Category(TestCommons.CategoryUnitTest)]
     public class QTest
     {
-        private readonly Q tag = new Q();
+        private Q _tag;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _tag = new Q();
+        }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(tag.ToString(), "<q></q>");
+            Assert.AreEqual(_tag.ToString(), "<q></q>");
         }
 
-        [Test]
-        public void AddCite()
+        [TestCase(typeof(SupportCiteAttribute))]
+        public void SupportedAttributes(Type supportedType)
         {
-            tag.AddCite("http://something");
-            Assert.AreEqual(tag.ToString(), "<q cite=\"http://something\"></q>");
+            Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
         }
     }
 }

@@ -1,7 +1,15 @@
+using System;
+
 namespace Tags.HTMLTags.Attributes
 {
-    public interface SupportWidthAttribute
+    public interface SupportWidthAttribute : ITag { }
+
+    public static class WidthAttribute
     {
-        void AddWidth(int width);
+        public static void AddWidth(this SupportWidthAttribute tag, int width)
+        {
+            if (width < 0) { throw new ArgumentException(); }
+            tag.TagBuilder.MergeAttribute("width", width.ToString());
+        }
     }
 }
