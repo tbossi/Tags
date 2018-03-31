@@ -8,7 +8,6 @@ namespace Tags.HTMLTags.Attributes
             Value = value;
         }
 
-        public static Sandbox ApplyAll => new Sandbox("");
         public static Sandbox AllowForms => new Sandbox("allow-forms");
         public static Sandbox AllowPointerLock => new Sandbox("allow-pointer-lock");
         public static Sandbox AllowPopups => new Sandbox("allow-popups");

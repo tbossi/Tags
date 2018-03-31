@@ -65,7 +65,7 @@ namespace Tags.Test
             var innerTag2 = new Mock<HTMLTags.Tag>("innerTag2");
 
             CommonAssert(builder => builder.InnerHTML(innerTag1.Object, innerTag2.Object),
-                t => t.AddInnerHtml(innerTag1.Object, innerTag2.Object));
+                $"<test>{innerTag1.Object.ToString()}{innerTag2.Object.ToString()}</test>");
         }
 
         [Test]
@@ -73,8 +73,7 @@ namespace Tags.Test
         {
             const string textToAdd = "text to add";
 
-            CommonAssert(builder => builder.InnerText(textToAdd),
-                t => t.AddInnerHtml(new HTMLTags.Text(textToAdd)));
+            CommonAssert(builder => builder.InnerText(textToAdd), $"<test>{textToAdd}</test>");
         }
 
         [Test]
@@ -85,7 +84,7 @@ namespace Tags.Test
             const string class3 = "class3";
 
             CommonAssert(builder => builder.Class(class1, class2, class3),
-                t => t.AddClasses(class1, class2, class3));
+                $"<test class=\"{class3} {class2} {class1}\"></test>");
         }
 
         [Test]
@@ -93,7 +92,7 @@ namespace Tags.Test
         {
             const string id = "id";
 
-            CommonAssert(builder => builder.Id(id), t => t.AddId(id));
+            CommonAssert(builder => builder.Id(id), $"<test id=\"{id}\"></test>");
         }
 
         [Test]
@@ -102,7 +101,7 @@ namespace Tags.Test
             const string key = "key";
             const string value = "value";
 
-            CommonAssert(builder => builder.Data(key, value), t => t.AddData(key, value));
+            CommonAssert(builder => builder.Data(key, value), $"<test data-{key}=\"{value}\"></test>");
         }
 
         [Test]
@@ -110,20 +109,17 @@ namespace Tags.Test
         {
             const string title = "title";
 
-            CommonAssert(builder => builder.Title(title), t => t.AddTitle(title));
+            CommonAssert(builder => builder.Title(title), $"<test title=\"{title}\"></test>");
         }
 
-        private void CommonAssert(Func<HTMLBuilder<Tag, HTMLBuilder>, HTMLBuilder<Tag, HTMLBuilder>> actionToTest, Expression<Action<HTMLTags.Tag>> actionToVerify)
+        private void CommonAssert(Func<HTMLBuilder<Tag, HTMLBuilder<Tag, HTMLBuilder>>, HTMLBuilder<Tag, HTMLBuilder<Tag, HTMLBuilder>>> actionToTest, string expectedResult)
         {
-            var tag = new Mock<HTMLTags.Tag>("tagForTest");
+            var tag = new Mock<Tag>("test");
 
-            tag.Setup(actionToVerify).Verifiable();
-
-            _htmlTag.StoreTag(tag.Object);
-            var actualHtmlTag = actionToTest.Invoke(_htmlTag);
-            Assert.AreEqual(actualHtmlTag, _htmlTag);
-
-            tag.VerifyAll();
+            var builder = _htmlTag.StoreTag(tag.Object);
+            var actualHtmlTag = actionToTest.Invoke(builder);
+            Assert.AreEqual(actualHtmlTag, builder);
+            Assert.AreEqual(actualHtmlTag.End().ToString(), expectedResult);
         }
     }
 }

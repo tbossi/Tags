@@ -35,8 +35,8 @@ namespace Tags.Tests.HTMLTags
         [Test]
         public void AddSrcdoc()
         {
-            _tag.AddSrcdoc("<p>hello!</p>");
-            Assert.AreEqual(_tag.ToString(), "<iframe src=\"http://src\" srcdoc=\"<p>hello!</p>\"></iframe>");
+            _tag.AddSrcdoc("<p>hello \"boy\"!</p>");
+            Assert.AreEqual(_tag.ToString(), "<iframe src=\"http://src\" srcdoc=\"<p>hello &quot;boy&quot;!</p>\"></iframe>");
         }
 
         [Test]

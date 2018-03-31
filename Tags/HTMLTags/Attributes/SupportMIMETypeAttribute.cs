@@ -8,7 +8,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddType(this SupportMIMETypeAttribute tag, string type)
         {
-            if (string.IsNullOrEmpty(type)) { throw new ArgumentException(); }
+            if (string.IsNullOrWhiteSpace(type)) { throw new ArgumentException(); }
             tag.TagBuilder.MergeAttribute("type", type);
         }
     }
