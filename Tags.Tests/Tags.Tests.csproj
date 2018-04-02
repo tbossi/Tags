@@ -107,5 +107,12 @@
     <Content Include="HTMLTags\Attributes\NameAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\RelAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\AltAttributeTest.cs" />
+    <Content Include="HTMLTags\DataTest.cs" />
+    <Content Include="HTMLTags\MapTest.cs" />
+    <Content Include="HTMLTags\Attributes\HeadersAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\ColspanAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\RowspanAttributeTest.cs" />
+    <Content Include="HTMLTags\TdTest.cs" />
+    <Content Include="HTMLTags\ThTest.cs" />
   </ItemGroup>
 </Project>
