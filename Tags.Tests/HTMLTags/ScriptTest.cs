@@ -1,4 +1,5 @@
 using System;
+using Moq;
 using NUnit.Framework;
 using Tags.HTMLTags;
 using Tags.HTMLTags.Attributes;
@@ -8,35 +9,26 @@ namespace Tags.Tests.HTMLTags
 {
     [TestFixture]
     [Category(TestCommons.CategoryUnitTest)]
-    public class ATest
+    public class ScriptTest
     {
-        private const string _url = "http://url";
-        private A _tag;
+        private Script _tag;
 
         [SetUp]
         public void SetUp()
         {
-            _tag = new A(_url);
+            _tag = new Mock<Script>().Object;
         }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(_tag.ToString(), $"<a href=\"{_url}\"></a>");
+            Assert.AreEqual(_tag.ToString(), $"<script></script>");
         }
 
-        [TestCase(typeof(SupportRelAttribute))]
-        [TestCase(typeof(SupportTargetAttribute))]
+        [TestCase(typeof(SupportMIMETypeAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
-        }
-
-        [Test]
-        public void AddDownload()
-        {
-            _tag.AddDownload("fileName");
-            Assert.AreEqual(_tag.ToString(), $"<a download=\"fileName\" href=\"{_url}\"></a>");
         }
 
         [Test]

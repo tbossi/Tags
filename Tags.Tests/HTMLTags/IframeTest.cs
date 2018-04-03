@@ -50,7 +50,7 @@ namespace Tags.Tests.HTMLTags
         public void AddSandbox_MultipleValues()
         {
             _tag.AddSandbox(Sandbox.AllowForms, Sandbox.AllowPointerLock);
-            Assert.AreEqual(_tag.ToString(), $"<iframe sandbox=\"{Sandbox.AllowForms.Value} {Sandbox.AllowPointerLock.Value}\" src=\"http://src\"></iframe>");
+            Assert.AreEqual(_tag.ToString(), $"<iframe sandbox=\"{Sandbox.AllowForms.LiteralValue()} {Sandbox.AllowPointerLock.LiteralValue()}\" src=\"http://src\"></iframe>");
         }
 
         [Test]

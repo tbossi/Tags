@@ -121,5 +121,19 @@
     <Content Include="HTMLTags\Attributes\SupportColspanAttribute.cs" />
     <Content Include="HTMLTags\Td.cs" />
     <Content Include="HTMLTags\Th.cs" />
+    <Content Include="HTMLTags\Attributes\SupportCharsetAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportSrcAttribute.cs" />
+    <Content Include="HTMLTags\Script.cs" />
+    <Content Include="HTMLTags\Attributes\Execution.cs" />
+    <Content Include="HTMLTags\InlineScript.cs" />
+    <Content Include="HTMLTags\ExternalScript.cs" />
+    <Content Include="HTMLTags\Attributes\HttpEquiv.cs" />
+    <Content Include="HTMLTags\Attributes\Name.cs" />
+    <Content Include="HTMLTags\Meta.cs" />
+    <Content Include="HTMLTags\Details.cs" />
+    <Content Include="HTMLTags\Attributes\LinkRel.cs" />
+    <Content Include="HTMLTags\Attributes\SupportMediaQueryAttribute.cs" />
+    <Content Include="HTMLTags\Link.cs" />
+    <Content Include="HTMLTags\Attributes\Crossorigin.cs" />
   </ItemGroup>
 </Project>

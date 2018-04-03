@@ -18,8 +18,6 @@ namespace Tags.HTMLTags
 
         public static TagName Button => new TagName("button");
 
-        public static TagName Details => new TagName("details");
-
         public static TagName Fieldset => new TagName("fieldset");
 
         public static TagName Form => new TagName("form");
@@ -29,9 +27,6 @@ namespace Tags.HTMLTags
 
         public static TagName Label => new TagName("label");
 
-        public static TagName Link => new TagName("link");
-
-        public static TagName Meta => new TagName("meta");
         public static TagName Meter => new TagName("meter");
 
         public static TagName Object => new TagName("object");
@@ -43,8 +38,6 @@ namespace Tags.HTMLTags
         public static TagName Param => new TagName("param");
 
         public static TagName Progress => new TagName("progress");
-
-        public static TagName Script => new TagName("script");
 
         public static TagName Select => new TagName("select");
 

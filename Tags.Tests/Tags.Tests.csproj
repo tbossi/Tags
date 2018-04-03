@@ -114,5 +114,14 @@
     <Content Include="HTMLTags\Attributes\RowspanAttributeTest.cs" />
     <Content Include="HTMLTags\TdTest.cs" />
     <Content Include="HTMLTags\ThTest.cs" />
+    <Content Include="HTMLTags\Attributes\CharsetAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\SrcAttributeTest.cs" />
+    <Content Include="HTMLTags\ScriptTest.cs" />
+    <Content Include="HTMLTags\InlineScriptTest.cs" />
+    <Content Include="HTMLTags\ExternalScriptTest.cs" />
+    <Content Include="HTMLTags\MetaTest.cs" />
+    <Content Include="HTMLTags\DetailsTest.cs" />
+    <Content Include="HTMLTags\Attributes\MediaQueryAttributeTest.cs" />
+    <Content Include="HTMLTags\LinkTest.cs" />
   </ItemGroup>
 </Project>

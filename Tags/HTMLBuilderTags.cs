@@ -170,6 +170,11 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddNormalTagIfAllowed(builder, new Del());
 
+        public static HTMLBuilder<Details, HTMLBuilder<X, Y>> Details<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddNormalTagIfAllowed(builder, new Details());
+
         public static HTMLBuilder<Dfn, HTMLBuilder<X, Y>> Dfn<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
             where Y : HTMLBuilder
@@ -285,6 +290,11 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddNormalTagIfAllowed(builder, new Li());
 
+        public static HTMLBuilder<X, Y> Link<X, Y>(this HTMLBuilder<X, Y> builder, string href)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddAutocloseTagIfAllowed(builder, new Link(href));
+
         public static HTMLBuilder<Main, HTMLBuilder<X, Y>> Main<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
             where Y : HTMLBuilder
@@ -299,6 +309,11 @@ namespace Tags
             where X : Tag
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddNormalTagIfAllowed(builder, new Mark());
+
+        public static HTMLBuilder<X, Y> Meta<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddAutocloseTagIfAllowed(builder, new Meta());
 
         public static HTMLBuilder<Nav, HTMLBuilder<X, Y>> Nav<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
@@ -354,6 +369,16 @@ namespace Tags
             where X : Tag
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddNormalTagIfAllowed(builder, new Samp());
+
+        public static HTMLBuilder<X, Y> ExternalScript<X, Y>(this HTMLBuilder<X, Y> builder, string src)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddAutocloseTagIfAllowed(builder, new ExternalScript(src));
+            
+        public static HTMLBuilder<X, Y> InlineScript<X, Y>(this HTMLBuilder<X, Y> builder, string scriptSource)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddAutocloseTagIfAllowed(builder, new InlineScript(scriptSource));
 
         public static HTMLBuilder<Section, HTMLBuilder<X, Y>> Section<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
@@ -463,6 +488,14 @@ namespace Tags
 
     public static class HTMLBuilderAttributes
     {
+        public static HTMLBuilder<X, Y> Charset<X, Y>(this HTMLBuilder<X, Y> builder, string charset)
+            where X : Tag, SupportCharsetAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddCharset(charset);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Cite<X, Y>(this HTMLBuilder<X, Y> builder, string cite)
             where X : Tag, SupportCiteAttribute
             where Y : HTMLBuilder
@@ -476,6 +509,14 @@ namespace Tags
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddColspan(colspan);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Crossorigin<X, Y>(this HTMLBuilder<X, Y> builder, Crossorigin crossorigin)
+            where X : Link
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddCrossorigin(crossorigin);
             return builder;
         }
 
@@ -495,6 +536,14 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Execution<X, Y>(this HTMLBuilder<X, Y> builder, Execution execution)
+            where X : ExternalScript
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddExecution(execution);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Headers<X, Y>(this HTMLBuilder<X, Y> builder, string headers)
             where X : Tag, SupportHeadersAttribute
             where Y : HTMLBuilder
@@ -511,6 +560,22 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> HttpEquiv<X, Y>(this HTMLBuilder<X, Y> builder, HttpEquiv httpEquiv, string content)
+            where X : Meta
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddHttpEquiv(httpEquiv, content);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Media<X, Y>(this HTMLBuilder<X, Y> builder, string media)
+            where X : Tag, SupportMediaQueryAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddMedia(media);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Name<X, Y>(this HTMLBuilder<X, Y> builder, string name)
             where X : Tag, SupportNameAttribute
             where Y : HTMLBuilder
@@ -519,8 +584,32 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Name<X, Y>(this HTMLBuilder<X, Y> builder, Name name, string content)
+            where X : Meta
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddName(name, content);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Open<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Details
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddOpen();
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Rel<X, Y>(this HTMLBuilder<X, Y> builder, Rel rel)
             where X : Tag, SupportRelAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddRel(rel);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Rel<X, Y>(this HTMLBuilder<X, Y> builder, LinkRel rel)
+            where X : Link
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddRel(rel);
@@ -548,6 +637,14 @@ namespace Tags
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddSpan(span);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Src<X, Y>(this HTMLBuilder<X, Y> builder, string src)
+            where X : Tag, SupportSrcAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddSrc(src);
             return builder;
         }
 

@@ -31,13 +31,17 @@ namespace Tags.HTMLTags
 
         public sealed override string ToString()
         {
-            var tagContent = new StringBuilder();
-            foreach (var item in _content)
+            if (_content.Count > 0)
             {
-                tagContent.Append(item.ToString());
+                var tagContent = new StringBuilder();
+                foreach (var item in _content)
+                {
+                    tagContent.Append(item.ToString());
+                }
+
+                TagBuilder.InnerHtml = tagContent.ToString();
             }
 
-            TagBuilder.InnerHtml = tagContent.ToString();
             return TagBuilder.ToString(TagRenderMode);
         }
     }

@@ -24,7 +24,7 @@ namespace Tags.HTMLTags
             var builder = new StringBuilder();
             foreach (var s in new HashSet<Sandbox>(sandbox))
             {
-                builder.Append(s.Value);
+                builder.Append(s.LiteralValue());
                 builder.Append(" ");
             }
 
