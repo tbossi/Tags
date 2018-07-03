@@ -12,23 +12,6 @@ namespace Tags.HTMLTags
             Name = name;
         }
 
-        public static TagName Area => new TagName("area");
-
-        public static TagName Audio => new TagName("audio");
-
-        public static TagName Button => new TagName("button");
-
-        public static TagName Fieldset => new TagName("fieldset");
-
-        public static TagName Form => new TagName("form");
-
-        public static TagName Img => new TagName("img");
-        public static TagName Input => new TagName("input");
-
-        public static TagName Label => new TagName("label");
-
-        public static TagName Meter => new TagName("meter");
-
         public static TagName Object => new TagName("object");
         public static TagName Ol => new TagName("ol");
         public static TagName Optgroup => new TagName("optgroup");

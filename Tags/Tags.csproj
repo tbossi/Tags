@@ -135,5 +135,14 @@
     <Content Include="HTMLTags\Attributes\SupportMediaQueryAttribute.cs" />
     <Content Include="HTMLTags\Link.cs" />
     <Content Include="HTMLTags\Attributes\Crossorigin.cs" />
+    <Content Include="HTMLTags\Area.cs" />
+    <Content Include="HTMLTags\Audio.cs" />
+    <Content Include="HTMLTags\Button.cs" />
+    <Content Include="HTMLTags\Fieldset.cs" />
+    <Content Include="HTMLTags\Form.cs" />
+    <Content Include="HTMLTags\Img.cs" />
+    <Content Include="HTMLTags\Input.cs" />
+    <Content Include="HTMLTags\Label.cs" />
+    <Content Include="HTMLTags\Meter.cs" />
   </ItemGroup>
 </Project>

@@ -123,5 +123,14 @@
     <Content Include="HTMLTags\DetailsTest.cs" />
     <Content Include="HTMLTags\Attributes\MediaQueryAttributeTest.cs" />
     <Content Include="HTMLTags\LinkTest.cs" />
+    <Content Include="HTMLTags\AreaTest.cs" />
+    <Content Include="HTMLTags\AudioTest.cs" />
+    <Content Include="HTMLTags\ButtonTest.cs" />
+    <Content Include="HTMLTags\FieldsetTest.cs" />
+    <Content Include="HTMLTags\FormTest.cs" />
+    <Content Include="HTMLTags\ImgTest.cs" />
+    <Content Include="HTMLTags\InputTest.cs" />
+    <Content Include="HTMLTags\LabelTest.cs" />
+    <Content Include="HTMLTags\MeterTest.cs" />
   </ItemGroup>
 </Project>
