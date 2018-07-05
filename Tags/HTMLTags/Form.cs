@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
@@ -7,5 +8,15 @@ namespace Tags.HTMLTags
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 
         public Form() : base("form") { }
+
+        public void AddAcceptCharset(Charset charset)
+        {
+            TagBuilder.MergeAttribute("accept-charset", charset.LiteralValue());
+        }
+
+        public void AddAction(string action)
+        {
+            TagBuilder.MergeAttribute("action", action);
+        }
     }
 }

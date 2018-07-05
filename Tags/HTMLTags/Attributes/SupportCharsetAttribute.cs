@@ -6,10 +6,9 @@ namespace Tags.HTMLTags.Attributes
 
     public static class CharsetAttribute
     {
-        public static void AddCharset(this SupportCharsetAttribute tag, string charset)
+        public static void AddCharset(this SupportCharsetAttribute tag, Charset charset)
         {
-            if (string.IsNullOrWhiteSpace(charset)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("charset", charset);
+            tag.TagBuilder.MergeAttribute("charset", charset.LiteralValue());
         }
     }
 }

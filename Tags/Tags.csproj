@@ -156,5 +156,6 @@
     <Content Include="HTMLTags\Textarea.cs" />
     <Content Include="HTMLTags\Track.cs" />
     <Content Include="HTMLTags\Video.cs" />
+    <Content Include="HTMLTags\Attributes\Charset.cs" />
   </ItemGroup>
 </Project>

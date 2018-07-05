@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -26,6 +27,20 @@ namespace Tags.Tests.HTMLTags
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
+        }
+
+        [Test]
+        public void AddAcceptCharset()
+        {
+            _tag.AddAcceptCharset(Charset.ISO_8859_1);
+            Assert.AreEqual(_tag.ToString(), $"<form accept-charset=\"{Charset.ISO_8859_1.LiteralValue()}\"></form>");
+        }
+
+        [Test]
+        public void AddAction()
+        {
+            _tag.AddAction("https://www.example.com/some/action");
+            Assert.AreEqual(_tag.ToString(), "<form action=\"https://www.example.com/some/action\"></form>");
         }
 
         [Test]

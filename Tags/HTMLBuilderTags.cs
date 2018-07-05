@@ -8,6 +8,7 @@ namespace Tags
 {
     public static class HTMLBuilderUtilities
     {
+        // Todo: implement restrictions in tag usages
         public static HTMLBuilder<T, HTMLBuilder<X, Y>> AddTagIfAllowed<T, X, Y>(HTMLBuilder<X, Y> builder, T tagToAdd)
             where T : Tag
             where X : Tag
@@ -576,7 +577,39 @@ namespace Tags
 
     public static class HTMLBuilderAttributes
     {
-        public static HTMLBuilder<X, Y> Charset<X, Y>(this HTMLBuilder<X, Y> builder, string charset)
+        public static HTMLBuilder<X, Y> Accept<X, Y>(this HTMLBuilder<X, Y> builder, string fileType)
+            where X : Input
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddAccept(fileType);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> AcceptCharset<X, Y>(this HTMLBuilder<X, Y> builder, Charset charset)
+            where X : Form
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddAcceptCharset(charset);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Action<X, Y>(this HTMLBuilder<X, Y> builder, string action)
+            where X : Form
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddAction(action);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Alt<X, Y>(this HTMLBuilder<X, Y> builder, string alt)
+            where X : Tag, SupportAltAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddAlt(alt);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Charset<X, Y>(this HTMLBuilder<X, Y> builder, Charset charset)
             where X : Tag, SupportCharsetAttribute
             where Y : HTMLBuilder
         {

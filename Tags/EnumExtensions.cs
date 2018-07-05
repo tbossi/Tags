@@ -7,6 +7,20 @@ namespace Tags
     {
         public static string LiteralValue(this Enum enumValue) => enumValue.ToString("f").ToLowerInvariant();
 
+        public static string LiteralValue(this Charset charset)
+        {
+            switch (charset)
+            {
+                case Charset.UNKNOWN: return "UNKNOWN";
+                case Charset.ASCII: return "ASCII";
+                case Charset.ANSI: return "ANSI";
+                case Charset.UTF_8: return "UTF-8";
+                case Charset.ISO_8859_1: return "ISO-8859-1";
+                case Charset.ISO_8859_8: return "ISO-8859-1";
+                default: throw new ArgumentException();
+            }
+        }
+
         public static string LiteralValue(this Crossorigin crossorigin)
         {
             switch (crossorigin)

@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -23,9 +24,17 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<input>");
         }
 
+        [TestCase(typeof(SupportAltAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
+        }
+
+        [Test]
+        public void AddAccept()
+        {
+            _tag.AddAccept("image/*");
+            Assert.AreEqual(_tag.ToString(), "<input accept=\"image/*\">");
         }
 
         [Test]
