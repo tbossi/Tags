@@ -28,6 +28,13 @@ namespace Tags.Tests.HTMLTags
         }
 
         [Test]
+        public void AddData()
+        {
+            _tag.AddData("file.swf");
+            Assert.AreEqual(_tag.ToString(), "<object data=\"file.sfw\"></object>");
+        }
+
+        [Test]
         public void TagRenderMode()
         {
             Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);

@@ -9,6 +9,15 @@ namespace Tags.HTMLTags
 
         public Form() : base("form") { }
 
+        public void AddMethod(Method method, EncType? enctype = null)
+        {
+            TagBuilder.MergeAttribute("method", method.LiteralValue());
+            if (method == Method.POST && enctype.HasValue)
+            {
+                TagBuilder.MergeAttribute("enctype", enctype.Value.LiteralValue());
+            }
+        }
+
         public void AddAcceptCharset(Charset charset)
         {
             TagBuilder.MergeAttribute("accept-charset", charset.LiteralValue());

@@ -1,8 +1,9 @@
 using System.Web.Mvc;
+using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Fieldset : Tag
+    public class Fieldset : Tag, SupportDisabledAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 

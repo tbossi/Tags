@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -23,6 +24,7 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<option></option>");
         }
 
+        [TestCase(typeof(SupportDisabledAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

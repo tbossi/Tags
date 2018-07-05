@@ -3,7 +3,7 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Button : Tag, SupportAutofocusAttribute
+    public class Button : Tag, SupportAutofocusAttribute, SupportDisabledAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 

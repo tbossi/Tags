@@ -26,9 +26,17 @@ namespace Tags.Tests.HTMLTags
 
         [TestCase(typeof(SupportAltAttribute))]
         [TestCase(typeof(SupportTargetAttribute))]
+        [TestCase(typeof(SupportDownloadAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
+        }
+
+        [Test]
+        public void AddCoords()
+        {
+            _tag.AddCoords("90,58,3");
+            Assert.AreEqual(_tag.ToString(), "<area coords=\"90,58,3\">");
         }
 
         [Test]

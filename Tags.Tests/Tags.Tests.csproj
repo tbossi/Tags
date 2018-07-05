@@ -145,5 +145,12 @@
     <Content Include="HTMLTags\TextareaTest.cs" />
     <Content Include="HTMLTags\TrackTest.cs" />
     <Content Include="HTMLTags\VideoTest.cs" />
+    <Content Include="HTMLTags\Attributes\AutocompleteAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\AutofocusAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\AutoplayAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\ControlsAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\DisabledAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\DownloadAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\ForAttributeTest.cs" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Textarea : Tag, SupportAutofocusAttribute
+    public class Textarea : Tag, SupportAutofocusAttribute, SupportDisabledAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Textarea() : base("textarea") { }

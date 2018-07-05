@@ -27,16 +27,10 @@ namespace Tags.Tests.HTMLTags
 
         [TestCase(typeof(SupportRelAttribute))]
         [TestCase(typeof(SupportTargetAttribute))]
+        [TestCase(typeof(SupportDownloadAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
-        }
-
-        [Test]
-        public void AddDownload()
-        {
-            _tag.AddDownload("fileName");
-            Assert.AreEqual(_tag.ToString(), $"<a download=\"fileName\" href=\"{_url}\"></a>");
         }
 
         [Test]

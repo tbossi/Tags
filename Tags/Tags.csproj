@@ -162,5 +162,11 @@
     <Content Include="HTMLTags\Attributes\SupportAutoplayAttribute.cs" />
     <Content Include="HTMLTags\Attributes\InputType.cs" />
     <Content Include="HTMLTags\Attributes\SupportControlsAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportDisabledAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportDownloadAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\Method.cs" />
+    <Content Include="HTMLTags\Attributes\EncType.cs" />
+    <Content Include="HTMLBuilderAttributes.cs" />
+    <Content Include="HTMLTags\Attributes\SupportForAttribute.cs" />
   </ItemGroup>
 </Project>

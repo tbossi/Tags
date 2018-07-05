@@ -6,5 +6,10 @@ namespace Tags.HTMLTags
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
         public Track() : base("track") { }
+
+        public void AddDefault()
+        {
+            TagBuilder.MergeAttribute("default", "default");
+        }
     }
 }

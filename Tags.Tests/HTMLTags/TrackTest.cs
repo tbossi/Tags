@@ -29,6 +29,13 @@ namespace Tags.Tests.HTMLTags
         }
 
         [Test]
+        public void AddDefault()
+        {
+            _tag.AddDefault();
+            Assert.AreEqual(_tag.ToString(), "<track default=\"default\">");
+        }
+
+        [Test]
         public void TagRenderMode()
         {
             Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.StartTag);

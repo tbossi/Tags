@@ -31,6 +31,17 @@ namespace Tags
             }
         }
 
+        public static string LiteralValue(this EncType enctype)
+        {
+            switch (enctype)
+            {
+                case EncType.Application_X_WWW: return "application/x-www-form-urlencoded";
+                case EncType.Multipart_Form_Data: return "multipart/form-data";
+                case EncType.Plaintext: return "text/plain";
+                default: throw new ArgumentException();
+            }
+        }
+
         public static string LiteralValue(this HttpEquiv httpEquiv)
         {
             switch (httpEquiv)
