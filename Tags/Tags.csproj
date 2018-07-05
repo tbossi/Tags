@@ -13,7 +13,6 @@
     <Content Include="HTMLTags\Tag.cs" />
     <Content Include="HTMLTags\InnerHtml.cs" />
     <Content Include="HTMLTags\Text.cs" />
-    <Content Include="HTMLTags\TagName.cs" />
     <Content Include="HTMLTags\Div.cs" />
     <Content Include="HTMLBuilder.cs" />
     <Content Include="Exception\InvalidAttribute.cs" />
@@ -144,5 +143,18 @@
     <Content Include="HTMLTags\Input.cs" />
     <Content Include="HTMLTags\Label.cs" />
     <Content Include="HTMLTags\Meter.cs" />
+    <Content Include="HTMLTags\Object.cs" />
+    <Content Include="HTMLTags\Ol.cs" />
+    <Content Include="HTMLTags\Optgroup.cs" />
+    <Content Include="HTMLTags\Option.cs" />
+    <Content Include="HTMLTags\Output.cs" />
+    <Content Include="HTMLTags\Param.cs" />
+    <Content Include="HTMLTags\Progress.cs" />
+    <Content Include="HTMLTags\Select.cs" />
+    <Content Include="HTMLTags\Source.cs" />
+    <Content Include="HTMLTags\Style.cs" />
+    <Content Include="HTMLTags\Textarea.cs" />
+    <Content Include="HTMLTags\Track.cs" />
+    <Content Include="HTMLTags\Video.cs" />
   </ItemGroup>
 </Project>

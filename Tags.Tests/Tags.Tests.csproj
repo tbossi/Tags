@@ -132,5 +132,18 @@
     <Content Include="HTMLTags\InputTest.cs" />
     <Content Include="HTMLTags\LabelTest.cs" />
     <Content Include="HTMLTags\MeterTest.cs" />
+    <Content Include="HTMLTags\ObjectTest.cs" />
+    <Content Include="HTMLTags\OlTest.cs" />
+    <Content Include="HTMLTags\OptgroupTest.cs" />
+    <Content Include="HTMLTags\OptionTest.cs" />
+    <Content Include="HTMLTags\OutputTest.cs" />
+    <Content Include="HTMLTags\ParamTest.cs" />
+    <Content Include="HTMLTags\ProgressTest.cs" />
+    <Content Include="HTMLTags\SelectTest.cs" />
+    <Content Include="HTMLTags\SourceTest.cs" />
+    <Content Include="HTMLTags\StyleTest.cs" />
+    <Content Include="HTMLTags\TextareaTest.cs" />
+    <Content Include="HTMLTags\TrackTest.cs" />
+    <Content Include="HTMLTags\VideoTest.cs" />
   </ItemGroup>
 </Project>

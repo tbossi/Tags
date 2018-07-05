@@ -348,10 +348,40 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Noscript());
 
+        public static HTMLBuilder<HTMLTags.Object, HTMLBuilder<X, Y>> Object<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new HTMLTags.Object());
+
+        public static HTMLBuilder<Ol, HTMLBuilder<X, Y>> Ol<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Ol());
+
+        public static HTMLBuilder<Optgroup, HTMLBuilder<X, Y>> Optgroup<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Optgroup());
+
+        public static HTMLBuilder<Option, HTMLBuilder<X, Y>> Option<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Option());
+
+        public static HTMLBuilder<Output, HTMLBuilder<X, Y>> Output<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Output());
+
         public static HTMLBuilder<P, HTMLBuilder<X, Y>> P<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new P());
+
+        public static HTMLBuilder<Param, HTMLBuilder<X, Y>> Param<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Param());
 
         public static HTMLBuilder<Picture, HTMLBuilder<X, Y>> Picture<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
@@ -362,6 +392,11 @@ namespace Tags
             where X : Tag
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Pre());
+
+        public static HTMLBuilder<Progress, HTMLBuilder<X, Y>> Progress<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Progress());
 
         public static HTMLBuilder<Q, HTMLBuilder<X, Y>> Q<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
@@ -408,10 +443,20 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Section());
 
+        public static HTMLBuilder<Select, HTMLBuilder<X, Y>> Select<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Select());
+
         public static HTMLBuilder<Small, HTMLBuilder<X, Y>> Small<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Small());
+
+        public static HTMLBuilder<Source, HTMLBuilder<X, Y>> Source<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Source());
 
         public static HTMLBuilder<Span, HTMLBuilder<X, Y>> Span<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
@@ -422,6 +467,11 @@ namespace Tags
             where X : Tag
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Strong());
+
+        public static HTMLBuilder<Style, HTMLBuilder<X, Y>> Style<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Style());
 
         public static HTMLBuilder<Sub, HTMLBuilder<X, Y>> Sub<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
@@ -458,6 +508,11 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Template());
 
+        public static HTMLBuilder<Textarea, HTMLBuilder<X, Y>> Textarea<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Textarea());
+
         public static HTMLBuilder<Tfoot, HTMLBuilder<X, Y>> Tfoot<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
             where Y : HTMLBuilder
@@ -488,6 +543,11 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Tr());
 
+        public static HTMLBuilder<Track, HTMLBuilder<X, Y>> Track<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Track());
+
         public static HTMLBuilder<U, HTMLBuilder<X, Y>> U<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
             where Y : HTMLBuilder
@@ -502,6 +562,11 @@ namespace Tags
             where X : Tag
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Var());
+
+        public static HTMLBuilder<Video, HTMLBuilder<X, Y>> Video<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag
+            where Y : HTMLBuilder
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Video());
 
         public static HTMLBuilder<Wbr, HTMLBuilder<X, Y>> Wbr<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
