@@ -268,7 +268,7 @@ namespace Tags
             where X : Tag
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new I());
-            
+
         public static HTMLBuilder<Iframe, HTMLBuilder<X, Y>> Iframe<X, Y>(this HTMLBuilder<X, Y> builder, string src)
             where X : Tag
             where Y : HTMLBuilder
@@ -279,10 +279,10 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Img());
 
-        public static HTMLBuilder<Input, HTMLBuilder<X, Y>> Input<X, Y>(this HTMLBuilder<X, Y> builder)
+        public static HTMLBuilder<Input, HTMLBuilder<X, Y>> Input<X, Y>(this HTMLBuilder<X, Y> builder, HTMLTags.Attributes.InputType inputType)
             where X : Tag
             where Y : HTMLBuilder
-            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Input());
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Input(inputType));
 
         public static HTMLBuilder<Ins, HTMLBuilder<X, Y>> Ins<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
@@ -609,11 +609,43 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Autocomplete<X, Y>(this HTMLBuilder<X, Y> builder, bool autocomplete)
+            where X : Tag, SupportAutocompleteAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddAutocomplete(autocomplete);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Autofocus<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag, SupportAutofocusAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddAutofocus();
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Autoplay<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag, SupportAutoplayAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddAutoplay();
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Charset<X, Y>(this HTMLBuilder<X, Y> builder, Charset charset)
             where X : Tag, SupportCharsetAttribute
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddCharset(charset);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Checked<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Input
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddChecked();
             return builder;
         }
 
@@ -625,11 +657,27 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Cols<X, Y>(this HTMLBuilder<X, Y> builder, int cols)
+            where X : Textarea
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddCols(cols);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Colspan<X, Y>(this HTMLBuilder<X, Y> builder, int colspan)
             where X : Tag, SupportColspanAttribute
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddColspan(colspan);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Controls<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag, SupportControlsAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddControls();
             return builder;
         }
 

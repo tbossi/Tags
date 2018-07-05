@@ -157,5 +157,10 @@
     <Content Include="HTMLTags\Track.cs" />
     <Content Include="HTMLTags\Video.cs" />
     <Content Include="HTMLTags\Attributes\Charset.cs" />
+    <Content Include="HTMLTags\Attributes\SupportAutocompleteAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportAutofocusAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportAutoplayAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\InputType.cs" />
+    <Content Include="HTMLTags\Attributes\SupportControlsAttribute.cs" />
   </ItemGroup>
 </Project>

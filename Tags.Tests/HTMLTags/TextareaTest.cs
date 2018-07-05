@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -23,9 +24,23 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<textarea></textarea>");
         }
 
+        [TestCase(typeof(SupportAutofocusAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
+        }
+
+        [Test]
+        public void AddCols()
+        {
+            _tag.AddCols(5);
+            Assert.AreEqual(_tag.ToString(), "<textarea cols=\"5\"></textarea>");
+        }
+
+        [Test]
+        public void AddCols_ThrowsException()
+        {
+            Assert.Throws<ArgumentException>(() => _tag.AddCols(-10));
         }
 
         [Test]

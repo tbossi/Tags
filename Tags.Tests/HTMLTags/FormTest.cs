@@ -24,6 +24,7 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<form></form>");
         }
 
+        [TestCase(typeof(SupportAutocompleteAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

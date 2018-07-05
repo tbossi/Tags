@@ -3,7 +3,7 @@ using System;
 namespace Tags.HTMLTags.Attributes
 {
     public interface SupportAltAttribute : ITag { }
-    
+
     public static class AltAttribute
     {
         public static void AddAlt(this SupportAltAttribute tag, string alt)

@@ -1,8 +1,9 @@
 using System.Web.Mvc;
+using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Button : Tag
+    public class Button : Tag, SupportAutofocusAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 
