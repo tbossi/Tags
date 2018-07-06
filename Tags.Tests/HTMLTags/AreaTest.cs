@@ -40,6 +40,13 @@ namespace Tags.Tests.HTMLTags
         }
 
         [Test]
+        public void AddHref()
+        {
+            _tag.AddHref("file://asd.doc");
+            Assert.AreEqual(_tag.ToString(), "<area href=\"file://asd.doc\">");
+        }
+
+        [Test]
         public void TagRenderMode()
         {
             Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.StartTag);

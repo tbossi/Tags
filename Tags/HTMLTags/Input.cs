@@ -4,7 +4,9 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Input : Tag, SupportAltAttribute, SupportAutocompleteAttribute, SupportAutofocusAttribute, SupportDisabledAttribute
+    public class Input : Tag, SupportAltAttribute, SupportAutocompleteAttribute,
+        SupportAutofocusAttribute, SupportDisabledAttribute, SupportFormAttribute,
+        SupportHeightAttribute
     {
         private readonly Attributes.InputType _inputType;
 

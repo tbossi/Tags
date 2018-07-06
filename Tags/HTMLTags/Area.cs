@@ -13,5 +13,10 @@ namespace Tags.HTMLTags
         {
             TagBuilder.MergeAttribute("coords", coords);
         }
+
+        public virtual void AddHref(string href)
+        {
+            TagBuilder.MergeAttribute("href", href);
+        }
     }
 }

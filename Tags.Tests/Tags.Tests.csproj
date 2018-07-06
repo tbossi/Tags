@@ -152,5 +152,6 @@
     <Content Include="HTMLTags\Attributes\DisabledAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\DownloadAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\ForAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\FormAttributeTest.cs" />
   </ItemGroup>
 </Project>

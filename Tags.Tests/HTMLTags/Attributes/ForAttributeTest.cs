@@ -18,7 +18,7 @@ namespace Tags.Tests.HTMLTags.Attributes
         }
 
         [Test]
-        public void AddSrc()
+        public void AddFor()
         {
             AssertAttributeAdded(tag => tag.AddFor("some_element_id"), "<test for=\"some_element_id\"></test>");
         }

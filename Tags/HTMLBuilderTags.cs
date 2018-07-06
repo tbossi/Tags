@@ -333,10 +333,10 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Meta());
 
-        public static HTMLBuilder<Meter, HTMLBuilder<X, Y>> Meter<X, Y>(this HTMLBuilder<X, Y> builder)
+        public static HTMLBuilder<Meter, HTMLBuilder<X, Y>> Meter<X, Y>(this HTMLBuilder<X, Y> builder, double value)
             where X : Tag
             where Y : HTMLBuilder
-            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Meter());
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Meter(value));
 
         public static HTMLBuilder<Nav, HTMLBuilder<X, Y>> Nav<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag

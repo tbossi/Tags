@@ -3,7 +3,7 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Img : Tag, SupportAltAttribute
+    public class Img : Tag, SupportAltAttribute, SupportHeightAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
 

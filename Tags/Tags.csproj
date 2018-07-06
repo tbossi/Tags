@@ -168,5 +168,7 @@
     <Content Include="HTMLTags\Attributes\EncType.cs" />
     <Content Include="HTMLBuilderAttributes.cs" />
     <Content Include="HTMLTags\Attributes\SupportForAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportFormAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\Kind.cs" />
   </ItemGroup>
 </Project>

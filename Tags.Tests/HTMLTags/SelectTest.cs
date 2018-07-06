@@ -26,6 +26,7 @@ namespace Tags.Tests.HTMLTags
 
         [TestCase(typeof(SupportAutofocusAttribute))]
         [TestCase(typeof(SupportDisabledAttribute))]
+        [TestCase(typeof(SupportFormAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

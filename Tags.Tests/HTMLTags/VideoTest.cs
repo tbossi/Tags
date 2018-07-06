@@ -26,6 +26,7 @@ namespace Tags.Tests.HTMLTags
 
         [TestCase(typeof(SupportAutoplayAttribute))]
         [TestCase(typeof(SupportControlsAttribute))]
+        [TestCase(typeof(SupportHeightAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

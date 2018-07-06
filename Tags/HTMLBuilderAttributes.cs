@@ -182,6 +182,14 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Form<X, Y>(this HTMLBuilder<X, Y> builder, string id)
+            where X : Tag, SupportFormAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddForm(id);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Headers<X, Y>(this HTMLBuilder<X, Y> builder, string headers)
             where X : Tag, SupportHeadersAttribute
             where Y : HTMLBuilder
@@ -198,11 +206,51 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> High<X, Y>(this HTMLBuilder<X, Y> builder, double value)
+            where X : Meter
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddHigh(value);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Href<X, Y>(this HTMLBuilder<X, Y> builder, string href)
+            where X : Area
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddHref(href);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> HttpEquiv<X, Y>(this HTMLBuilder<X, Y> builder, HttpEquiv httpEquiv, string content)
             where X : Meta
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddHttpEquiv(httpEquiv, content);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Kind<X, Y>(this HTMLBuilder<X, Y> builder, Kind kind)
+            where X : Track
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddKind(kind);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Low<X, Y>(this HTMLBuilder<X, Y> builder, double value)
+            where X : Meter
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddLow(value);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Max<X, Y>(this HTMLBuilder<X, Y> builder, double value)
+            where X : Meter
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddMax(value);
             return builder;
         }
 
@@ -219,6 +267,14 @@ namespace Tags
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddMethod(method, enctype);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Min<X, Y>(this HTMLBuilder<X, Y> builder, double value)
+            where X : Meter
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddMin(value);
             return builder;
         }
 
@@ -243,6 +299,14 @@ namespace Tags
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddOpen();
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Optimum<X, Y>(this HTMLBuilder<X, Y> builder, double value)
+            where X : Meter
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddOptimum(value);
             return builder;
         }
 

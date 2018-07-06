@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
@@ -7,9 +8,14 @@ namespace Tags.HTMLTags
         public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
         public Track() : base("track") { }
 
-        public void AddDefault()
+        public virtual void AddDefault()
         {
             TagBuilder.MergeAttribute("default", "default");
+        }
+
+        public virtual void AddKind(Kind kind)
+        {
+            TagBuilder.MergeAttribute("kind", kind.LiteralValue());
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Tags.HTMLTags;
+using Tags.HTMLTags.Attributes;
 using Tags.Test;
 
 namespace Tags.Tests.HTMLTags
@@ -33,6 +34,13 @@ namespace Tags.Tests.HTMLTags
         {
             _tag.AddDefault();
             Assert.AreEqual(_tag.ToString(), "<track default=\"default\">");
+        }
+
+        [Test]
+        public void AddKind()
+        {
+            _tag.AddKind(Kind.Subtitles);
+            Assert.AreEqual(_tag.ToString(), "<track kind=\"subtitles\">");
         }
 
         [Test]
