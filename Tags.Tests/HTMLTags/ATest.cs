@@ -28,6 +28,7 @@ namespace Tags.Tests.HTMLTags
         [TestCase(typeof(SupportRelAttribute))]
         [TestCase(typeof(SupportTargetAttribute))]
         [TestCase(typeof(SupportDownloadAttribute))]
+        [TestCase(typeof(SupportMediaQueryAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

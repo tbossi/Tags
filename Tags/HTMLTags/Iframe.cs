@@ -5,7 +5,8 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Iframe : Tag, SupportHeightAttribute, SupportWidthAttribute, SupportNameAttribute
+    public class Iframe : Tag, SupportHeightAttribute, SupportWidthAttribute,
+        SupportNameAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 

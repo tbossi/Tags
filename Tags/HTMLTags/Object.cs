@@ -3,7 +3,8 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Object : Tag, SupportFormAttribute, SupportHeightAttribute
+    public class Object : Tag, SupportFormAttribute, SupportHeightAttribute,
+        SupportNameAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Object() : base("object") { }

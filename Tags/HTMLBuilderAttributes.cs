@@ -238,6 +238,30 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Label<X, Y>(this HTMLBuilder<X, Y> builder, string label)
+            where X : Tag, SupportLabelAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddLabel(label);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> List<X, Y>(this HTMLBuilder<X, Y> builder, string datalistId)
+            where X : Input
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddList(datalistId);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Loop<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag, SupportLoopAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddLoop();
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Low<X, Y>(this HTMLBuilder<X, Y> builder, double value)
             where X : Meter
             where Y : HTMLBuilder
@@ -251,6 +275,14 @@ namespace Tags
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddMax(value);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> MaxLength<X, Y>(this HTMLBuilder<X, Y> builder, int value)
+            where X : Tag, SupportMaxLengthAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddMaxLength(value);
             return builder;
         }
 
@@ -278,6 +310,22 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Multiple<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag, SupportMultipleAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddMultiple();
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Muted<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag, SupportMutedAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddMuted();
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Name<X, Y>(this HTMLBuilder<X, Y> builder, string name)
             where X : Tag, SupportNameAttribute
             where Y : HTMLBuilder
@@ -291,6 +339,14 @@ namespace Tags
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddName(name, content);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> NoValidate<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Form
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddNoValidate();
             return builder;
         }
 

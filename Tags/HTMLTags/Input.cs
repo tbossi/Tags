@@ -6,7 +6,8 @@ namespace Tags.HTMLTags
 {
     public class Input : Tag, SupportAltAttribute, SupportAutocompleteAttribute,
         SupportAutofocusAttribute, SupportDisabledAttribute, SupportFormAttribute,
-        SupportHeightAttribute
+        SupportHeightAttribute, SupportMaxLengthAttribute, SupportMultipleAttribute,
+        SupportNameAttribute
     {
         private readonly Attributes.InputType _inputType;
 
@@ -18,12 +19,12 @@ namespace Tags.HTMLTags
             TagBuilder.MergeAttribute("type", _inputType.LiteralValue());
         }
 
-        public void AddAccept(string fileType)
+        public virtual void AddAccept(string fileType)
         {
             TagBuilder.MergeAttribute("accept", fileType);
         }
 
-        public void AddChecked()
+        public virtual void AddChecked()
         {
             switch (_inputType)
             {
@@ -34,6 +35,11 @@ namespace Tags.HTMLTags
                 default:
                     throw new InvalidAttribute("checked", this);
             }
+        }
+
+        public virtual void AddList(string datalistId)
+        {
+            TagBuilder.MergeAttribute("list", datalistId);
         }
     }
 }

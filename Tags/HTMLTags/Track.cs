@@ -3,7 +3,7 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Track : Tag
+    public class Track : Tag, SupportLabelAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
         public Track() : base("track") { }

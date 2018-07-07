@@ -3,13 +3,13 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Form : Tag, SupportAutocompleteAttribute
+    public class Form : Tag, SupportAutocompleteAttribute, SupportNameAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 
         public Form() : base("form") { }
 
-        public void AddMethod(Method method, EncType? enctype = null)
+        public virtual void AddMethod(Method method, EncType? enctype = null)
         {
             TagBuilder.MergeAttribute("method", method.LiteralValue());
             if (method == Method.POST && enctype.HasValue)
@@ -18,14 +18,19 @@ namespace Tags.HTMLTags
             }
         }
 
-        public void AddAcceptCharset(Charset charset)
+        public virtual void AddAcceptCharset(Charset charset)
         {
             TagBuilder.MergeAttribute("accept-charset", charset.LiteralValue());
         }
 
-        public void AddAction(string action)
+        public virtual void AddAction(string action)
         {
             TagBuilder.MergeAttribute("action", action);
+        }
+
+        public virtual void AddNoValidate()
+        {
+            TagBuilder.MergeAttribute("novalidate", "novalidate");
         }
     }
 }

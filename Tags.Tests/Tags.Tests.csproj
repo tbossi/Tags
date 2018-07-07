@@ -153,5 +153,10 @@
     <Content Include="HTMLTags\Attributes\DownloadAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\ForAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\FormAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\LabelAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\LoopAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\MaxLengthAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\MultipleAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\MutedAttributeTest.cs" />
   </ItemGroup>
 </Project>

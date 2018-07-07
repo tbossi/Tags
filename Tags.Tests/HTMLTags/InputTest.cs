@@ -31,6 +31,9 @@ namespace Tags.Tests.HTMLTags
         [TestCase(typeof(SupportDisabledAttribute))]
         [TestCase(typeof(SupportFormAttribute))]
         [TestCase(typeof(SupportHeightAttribute))]
+        [TestCase(typeof(SupportMaxLengthAttribute))]
+        [TestCase(typeof(SupportMultipleAttribute))]
+        [TestCase(typeof(SupportNameAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
@@ -64,6 +67,13 @@ namespace Tags.Tests.HTMLTags
                         break;
                 }
             }
+        }
+
+        [Test]
+        public void AddList()
+        {
+            _tag.AddList("datalist_id");
+            Assert.AreEqual(_tag.ToString(), "<input list=\"datalist_id\" type=\"password\">");
         }
 
         [Test]

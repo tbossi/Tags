@@ -3,7 +3,7 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Optgroup : Tag, SupportDisabledAttribute
+    public class Optgroup : Tag, SupportDisabledAttribute, SupportLabelAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Optgroup() : base("optgroup") { }

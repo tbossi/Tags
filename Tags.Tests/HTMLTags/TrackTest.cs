@@ -24,6 +24,7 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<track>");
         }
 
+        [TestCase(typeof(SupportLabelAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

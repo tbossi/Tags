@@ -3,7 +3,8 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Area : Tag, SupportAltAttribute, SupportTargetAttribute, SupportDownloadAttribute
+    public class Area : Tag, SupportAltAttribute, SupportTargetAttribute,
+        SupportDownloadAttribute, SupportMediaQueryAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
 

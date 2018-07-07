@@ -170,5 +170,10 @@
     <Content Include="HTMLTags\Attributes\SupportForAttribute.cs" />
     <Content Include="HTMLTags\Attributes\SupportFormAttribute.cs" />
     <Content Include="HTMLTags\Attributes\Kind.cs" />
+    <Content Include="HTMLTags\Attributes\SupportLabelAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportLoopAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportMaxLengthAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportMultipleAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportMutedAttribute.cs" />
   </ItemGroup>
 </Project>

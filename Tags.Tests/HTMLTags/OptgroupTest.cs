@@ -25,6 +25,7 @@ namespace Tags.Tests.HTMLTags
         }
 
         [TestCase(typeof(SupportDisabledAttribute))]
+        [TestCase(typeof(SupportLabelAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

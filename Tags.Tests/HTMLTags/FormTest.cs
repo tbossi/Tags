@@ -25,6 +25,7 @@ namespace Tags.Tests.HTMLTags
         }
 
         [TestCase(typeof(SupportAutocompleteAttribute))]
+        [TestCase(typeof(SupportNameAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
@@ -64,6 +65,13 @@ namespace Tags.Tests.HTMLTags
         {
             _tag.AddAction("https://www.example.com/some/action");
             Assert.AreEqual(_tag.ToString(), "<form action=\"https://www.example.com/some/action\"></form>");
+        }
+
+        [Test]
+        public void AddNoValidate()
+        {
+            _tag.AddNoValidate();
+            Assert.AreEqual(_tag.ToString(), "<form novalidate=\"novalidate\"></form>");
         }
 
         [Test]
