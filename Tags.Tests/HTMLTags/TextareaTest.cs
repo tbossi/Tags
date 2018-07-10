@@ -51,6 +51,19 @@ namespace Tags.Tests.HTMLTags
         }
 
         [Test]
+        public void AddRows()
+        {
+            _tag.AddRows(5);
+            Assert.AreEqual(_tag.ToString(), "<textarea rows=\"5\"></textarea>");
+        }
+
+        [Test]
+        public void AddRows_ThrowsException()
+        {
+            Assert.Throws<ArgumentException>(() => _tag.AddRows(-10));
+        }
+
+        [Test]
         public void TagRenderMode()
         {
             Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);

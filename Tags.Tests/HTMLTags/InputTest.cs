@@ -37,6 +37,7 @@ namespace Tags.Tests.HTMLTags
         [TestCase(typeof(SupportPlaceholderAttribute))]
         [TestCase(typeof(SupportReadonlyAttribute))]
         [TestCase(typeof(SupportRequiredAttribute))]
+        [TestCase(typeof(SupportSizeAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

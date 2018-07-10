@@ -7,5 +7,10 @@ namespace Tags.HTMLTags
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Option() : base("option") { }
+
+        public virtual void AddSelected()
+        {
+            TagBuilder.MergeAttribute("selected", "selected");
+        }
     }
 }

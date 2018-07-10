@@ -24,6 +24,13 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<option></option>");
         }
 
+        [Test]
+        public void AddSelected()
+        {
+            _tag.AddSelected();
+            Assert.AreEqual(_tag.ToString(), "<option selected=\"selected\"></option>");
+        }
+
         [TestCase(typeof(SupportDisabledAttribute))]
         [TestCase(typeof(SupportLabelAttribute))]
         public void SupportedAttributes(Type supportedType)

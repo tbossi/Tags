@@ -162,5 +162,6 @@
     <Content Include="HTMLTags\Attributes\PreloadAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\ReadonlyAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\RequiredAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\SizeAttributeTest.cs" />
   </ItemGroup>
 </Project>

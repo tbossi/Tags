@@ -19,5 +19,10 @@ namespace Tags.HTMLTags
         {
             TagBuilder.MergeAttribute("href", href);
         }
+
+        public virtual void AddShape(Shape shape)
+        {
+            TagBuilder.MergeAttribute("shape", shape.LiteralValue());
+        }
     }
 }

@@ -438,19 +438,59 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Rows<X, Y>(this HTMLBuilder<X, Y> builder, int rows)
+            where X : Textarea
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddRows(rows);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Rowspan<X, Y>(this HTMLBuilder<X, Y> builder, int rowspan)
             where X : Tag, SupportRowspanAttribute
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddRowspan(rowspan);
             return builder;
-        }
+        }        
 
         public static HTMLBuilder<X, Y> Sandbox<X, Y>(this HTMLBuilder<X, Y> builder, params Sandbox[] sandbox)
             where X : Iframe
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddSandbox(sandbox);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Scope<X, Y>(this HTMLBuilder<X, Y> builder, Scope scope)
+            where X : Th
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddScope(scope);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Selected<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Option
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddSelected();
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Shape<X, Y>(this HTMLBuilder<X, Y> builder, Shape shape)
+            where X : Area
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddShape(shape);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Size<X, Y>(this HTMLBuilder<X, Y> builder, int size)
+            where X : Tag, SupportSizeAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddSize(size);
             return builder;
         }
 

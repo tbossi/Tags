@@ -8,5 +8,10 @@ namespace Tags.HTMLTags
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 
         public Th() : base("th") { }
+
+        public virtual void AddScope(Scope scope)
+        {
+            TagBuilder.MergeAttribute("scope", scope.LiteralValue());
+        }
     }
 }

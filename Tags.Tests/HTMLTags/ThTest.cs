@@ -24,6 +24,13 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<th></th>");
         }
 
+        [Test]
+        public void AddScope()
+        {
+            _tag.AddScope(Scope.Col);
+            Assert.AreEqual(_tag.ToString(), $"<th scope=\"{Scope.Col.LiteralValue()}\"></th>");
+        }
+
         [TestCase(typeof(SupportColspanAttribute))]
         [TestCase(typeof(SupportRowspanAttribute))]
         [TestCase(typeof(SupportHeadersAttribute))]

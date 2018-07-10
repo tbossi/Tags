@@ -180,5 +180,8 @@
     <Content Include="HTMLTags\Attributes\SupportPreloadAttribute.cs" />
     <Content Include="HTMLTags\Attributes\SupportReadonlyAttribute.cs" />
     <Content Include="HTMLTags\Attributes\SupportRequiredAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\Scope.cs" />
+    <Content Include="HTMLTags\Attributes\Shape.cs" />
+    <Content Include="HTMLTags\Attributes\SupportSizeAttribute.cs" />
   </ItemGroup>
 </Project>

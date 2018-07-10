@@ -49,6 +49,13 @@ namespace Tags.Tests.HTMLTags
         }
 
         [Test]
+        public void AddShape()
+        {
+            _tag.AddShape(Shape.Circle);
+            Assert.AreEqual(_tag.ToString(), $"<area shape=\"{Shape.Circle.LiteralValue()}\">");
+        }
+
+        [Test]
         public void TagRenderMode()
         {
             Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.StartTag);

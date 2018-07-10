@@ -16,5 +16,11 @@ namespace Tags.HTMLTags
             if (cols < 0) { throw new ArgumentException(); }
             TagBuilder.MergeAttribute("cols", cols.ToString());
         }
+
+        public void AddRows(int rows)
+        {
+            if (rows < 0) { throw new ArgumentException(); }
+            TagBuilder.MergeAttribute("rows", rows.ToString());
+        }
     }
 }
