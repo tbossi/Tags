@@ -175,5 +175,10 @@
     <Content Include="HTMLTags\Attributes\SupportMaxLengthAttribute.cs" />
     <Content Include="HTMLTags\Attributes\SupportMultipleAttribute.cs" />
     <Content Include="HTMLTags\Attributes\SupportMutedAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportPlaceholderAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\Preload.cs" />
+    <Content Include="HTMLTags\Attributes\SupportPreloadAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportReadonlyAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportRequiredAttribute.cs" />
   </ItemGroup>
 </Project>

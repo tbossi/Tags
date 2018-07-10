@@ -366,6 +366,46 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Pattern<X, Y>(this HTMLBuilder<X, Y> builder, string pattern)
+            where X : Input
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddPattern(pattern);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Placeholder<X, Y>(this HTMLBuilder<X, Y> builder, string placeholder)
+            where X : Tag, SupportPlaceholderAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddPlaceholder(placeholder);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Poster<X, Y>(this HTMLBuilder<X, Y> builder, string url)
+            where X : Video
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddPoster(url);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Preload<X, Y>(this HTMLBuilder<X, Y> builder, Preload preload)
+            where X : Tag, SupportPreloadAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddPreload(preload);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Readonly<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag, SupportReadonlyAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddReadonly();
+            return builder;
+        }
+        
         public static HTMLBuilder<X, Y> Rel<X, Y>(this HTMLBuilder<X, Y> builder, Rel rel)
             where X : Tag, SupportRelAttribute
             where Y : HTMLBuilder
@@ -379,6 +419,22 @@ namespace Tags
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddRel(rel);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Required<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Tag, SupportRequiredAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddRequired();
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Reversed<X, Y>(this HTMLBuilder<X, Y> builder)
+            where X : Ol
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddReversed();
             return builder;
         }
 

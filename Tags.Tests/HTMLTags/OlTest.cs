@@ -23,6 +23,13 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<ol></ol>");
         }
 
+        [Test]
+        public void AddRversed()
+        {
+            _tag.AddReversed();
+            Assert.AreEqual(_tag.ToString(), "<ol reversed=\"reversed\"></ol>");
+        }
+
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

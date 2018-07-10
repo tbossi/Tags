@@ -7,7 +7,8 @@ namespace Tags.HTMLTags
     public class Input : Tag, SupportAltAttribute, SupportAutocompleteAttribute,
         SupportAutofocusAttribute, SupportDisabledAttribute, SupportFormAttribute,
         SupportHeightAttribute, SupportMaxLengthAttribute, SupportMultipleAttribute,
-        SupportNameAttribute
+        SupportNameAttribute, SupportPlaceholderAttribute, SupportReadonlyAttribute,
+        SupportRequiredAttribute
     {
         private readonly Attributes.InputType _inputType;
 
@@ -40,6 +41,24 @@ namespace Tags.HTMLTags
         public virtual void AddList(string datalistId)
         {
             TagBuilder.MergeAttribute("list", datalistId);
+        }
+
+        public virtual void AddPattern(string pattern)
+        {
+            switch (_inputType)
+            {
+                case Attributes.InputType.Date:
+                case Attributes.InputType.Email:
+                case Attributes.InputType.Password:
+                case Attributes.InputType.Search:
+                case Attributes.InputType.Tel:
+                case Attributes.InputType.Text:
+                case Attributes.InputType.Url:
+                    TagBuilder.MergeAttribute("pattern", pattern);
+                    break;
+                default:
+                    throw new InvalidAttribute("pattern", this);
+            }
         }
     }
 }

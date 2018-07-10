@@ -158,5 +158,9 @@
     <Content Include="HTMLTags\Attributes\MaxLengthAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\MultipleAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\MutedAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\PlaceholderAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\PreloadAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\ReadonlyAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\RequiredAttributeTest.cs" />
   </ItemGroup>
 </Project>

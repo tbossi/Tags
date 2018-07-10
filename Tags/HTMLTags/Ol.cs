@@ -6,5 +6,10 @@ namespace Tags.HTMLTags
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Ol() : base("ol") { }
+
+        public virtual void AddReversed()
+        {
+            TagBuilder.MergeAttribute("reversed", "reversed");
+        }
     }
 }

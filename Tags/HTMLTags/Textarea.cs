@@ -5,7 +5,8 @@ using Tags.HTMLTags.Attributes;
 namespace Tags.HTMLTags
 {
     public class Textarea : Tag, SupportAutofocusAttribute, SupportDisabledAttribute,
-        SupportFormAttribute, SupportMaxLengthAttribute, SupportNameAttribute
+        SupportFormAttribute, SupportMaxLengthAttribute, SupportNameAttribute,
+        SupportPlaceholderAttribute, SupportReadonlyAttribute, SupportRequiredAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Textarea() : base("textarea") { }

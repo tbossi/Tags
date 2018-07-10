@@ -34,6 +34,9 @@ namespace Tags.Tests.HTMLTags
         [TestCase(typeof(SupportMaxLengthAttribute))]
         [TestCase(typeof(SupportMultipleAttribute))]
         [TestCase(typeof(SupportNameAttribute))]
+        [TestCase(typeof(SupportPlaceholderAttribute))]
+        [TestCase(typeof(SupportReadonlyAttribute))]
+        [TestCase(typeof(SupportRequiredAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
@@ -80,6 +83,32 @@ namespace Tags.Tests.HTMLTags
         public void TagRenderMode()
         {
             Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.StartTag);
+        }
+
+        [Test]
+        public void AddPattern()
+        {
+            const string pattern = "[A-Za-z]{3,6}.*";
+            foreach (InputType e in Enum.GetValues(typeof(InputType)))
+            {
+                _tag = new Input(e);
+                switch (e)
+                {
+                    case InputType.Date:
+                    case InputType.Email:
+                    case InputType.Password:
+                    case InputType.Search:
+                    case InputType.Tel:
+                    case InputType.Text:
+                    case InputType.Url:
+                        _tag.AddPattern(pattern);
+                        Assert.AreEqual(_tag.ToString(), $"<input pattern=\"{pattern}\" type=\"{e.LiteralValue()}\">");
+                        break;
+                    default:
+                        Assert.Throws<InvalidAttribute>(() => _tag.AddPattern(pattern));
+                        break;
+                }
+            }
         }
     }
 }

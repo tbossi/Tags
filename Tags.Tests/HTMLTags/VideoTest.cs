@@ -24,11 +24,19 @@ namespace Tags.Tests.HTMLTags
             Assert.AreEqual(_tag.ToString(), "<video></video>");
         }
 
+        [Test]
+        public void AddPoster()
+        {
+            _tag.AddPoster("/url/to/image.png");
+            Assert.AreEqual(_tag.ToString(), "<video poster=\"/url/to/image.png\"></video>");
+        }
+
         [TestCase(typeof(SupportAutoplayAttribute))]
         [TestCase(typeof(SupportControlsAttribute))]
         [TestCase(typeof(SupportHeightAttribute))]
         [TestCase(typeof(SupportLoopAttribute))]
         [TestCase(typeof(SupportMutedAttribute))]
+        [TestCase(typeof(SupportPreloadAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
