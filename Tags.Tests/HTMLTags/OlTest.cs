@@ -24,10 +24,17 @@ namespace Tags.Tests.HTMLTags
         }
 
         [Test]
-        public void AddRversed()
+        public void AddReversed()
         {
             _tag.AddReversed();
             Assert.AreEqual(_tag.ToString(), "<ol reversed=\"reversed\"></ol>");
+        }
+
+        [Test]
+        public void AddStart()
+        {
+            _tag.AddStart(50);
+            Assert.AreEqual(_tag.ToString(), "<ol start=\"50\"></ol>");
         }
 
         public void SupportedAttributes(Type supportedType)

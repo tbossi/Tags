@@ -8,7 +8,7 @@ namespace Tags.HTMLTags
         SupportAutofocusAttribute, SupportDisabledAttribute, SupportFormAttribute,
         SupportHeightAttribute, SupportMaxLengthAttribute, SupportMultipleAttribute,
         SupportNameAttribute, SupportPlaceholderAttribute, SupportReadonlyAttribute,
-        SupportRequiredAttribute, SupportSizeAttribute
+        SupportRequiredAttribute, SupportSizeAttribute, SupportSrcAttribute
     {
         private readonly Attributes.InputType _inputType;
 
@@ -58,6 +58,24 @@ namespace Tags.HTMLTags
                     break;
                 default:
                     throw new InvalidAttribute("pattern", this);
+            }
+        }
+
+        public virtual void AddStep(int step)
+        {
+            switch (_inputType)
+            {
+                case Attributes.InputType.Date:
+                case Attributes.InputType.DatetimeLocal:
+                case Attributes.InputType.Month:
+                case Attributes.InputType.Number:
+                case Attributes.InputType.Range:
+                case Attributes.InputType.Time:
+                case Attributes.InputType.Week:
+                    TagBuilder.MergeAttribute("step", step.ToString());
+                    break;
+                default:
+                    throw new InvalidAttribute("step", this);
             }
         }
     }

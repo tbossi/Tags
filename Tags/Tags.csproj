@@ -183,5 +183,8 @@
     <Content Include="HTMLTags\Attributes\Scope.cs" />
     <Content Include="HTMLTags\Attributes\Shape.cs" />
     <Content Include="HTMLTags\Attributes\SupportSizeAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportSrcsetAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\ButtonType.cs" />
+    <Content Include="HTMLTags\Attributes\SupportUsemapAttribute.cs" />
   </ItemGroup>
 </Project>

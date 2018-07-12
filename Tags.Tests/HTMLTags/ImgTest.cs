@@ -15,17 +15,18 @@ namespace Tags.Tests.HTMLTags
         [SetUp]
         public void SetUp()
         {
-            _tag = new Img();
+            _tag = new Img("/image.jpg", "An image");
         }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(_tag.ToString(), "<img>");
+            Assert.AreEqual(_tag.ToString(), "<img alt=\"An image\" src=\"/image.jpg\">");
         }
 
-        [TestCase(typeof(SupportAltAttribute))]
         [TestCase(typeof(SupportHeightAttribute))]
+        [TestCase(typeof(SupportSrcsetAttribute))]
+        [TestCase(typeof(SupportUsemapAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

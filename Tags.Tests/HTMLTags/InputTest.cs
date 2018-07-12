@@ -38,6 +38,7 @@ namespace Tags.Tests.HTMLTags
         [TestCase(typeof(SupportReadonlyAttribute))]
         [TestCase(typeof(SupportRequiredAttribute))]
         [TestCase(typeof(SupportSizeAttribute))]
+        [TestCase(typeof(SupportSrcAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
@@ -107,6 +108,32 @@ namespace Tags.Tests.HTMLTags
                         break;
                     default:
                         Assert.Throws<InvalidAttribute>(() => _tag.AddPattern(pattern));
+                        break;
+                }
+            }
+        }
+
+        [Test]
+        public void AddStep()
+        {
+            const int step = 3;
+            foreach (InputType e in Enum.GetValues(typeof(InputType)))
+            {
+                _tag = new Input(e);
+                switch (e)
+                {
+                    case InputType.Date:
+                    case InputType.DatetimeLocal:
+                    case InputType.Month:
+                    case InputType.Number:
+                    case InputType.Range:
+                    case InputType.Time:
+                    case InputType.Week:
+                        _tag.AddStep(step);
+                        Assert.AreEqual(_tag.ToString(), $"<input step=\"{step}\" type=\"{e.LiteralValue()}\">");
+                        break;
+                    default:
+                        Assert.Throws<InvalidAttribute>(() => _tag.AddStep(step));
                         break;
                 }
             }

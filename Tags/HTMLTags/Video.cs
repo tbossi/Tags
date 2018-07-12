@@ -5,7 +5,7 @@ namespace Tags.HTMLTags
 {
     public class Video : Tag, SupportAutoplayAttribute, SupportControlsAttribute,
         SupportHeightAttribute, SupportLoopAttribute, SupportMutedAttribute,
-        SupportPreloadAttribute
+        SupportPreloadAttribute, SupportSrcAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Video() : base("video") { }

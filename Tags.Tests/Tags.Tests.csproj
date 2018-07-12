@@ -163,5 +163,7 @@
     <Content Include="HTMLTags\Attributes\ReadonlyAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\RequiredAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\SizeAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\SrcsetAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\UsemapAttributeTest.cs" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,8 @@ using Tags.HTMLTags.Attributes;
 namespace Tags.HTMLTags
 {
     public class Audio : Tag, SupportAutoplayAttribute, SupportControlsAttribute,
-        SupportLoopAttribute, SupportMutedAttribute, SupportPreloadAttribute
+        SupportLoopAttribute, SupportMutedAttribute, SupportPreloadAttribute,
+        SupportSrcAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 

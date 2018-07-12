@@ -108,10 +108,10 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Br());
 
-        public static HTMLBuilder<Button, HTMLBuilder<X, Y>> Button<X, Y>(this HTMLBuilder<X, Y> builder)
+        public static HTMLBuilder<Button, HTMLBuilder<X, Y>> Button<X, Y>(this HTMLBuilder<X, Y> builder, ButtonType type)
             where X : Tag
             where Y : HTMLBuilder
-            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Button());
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Button(type));
 
         public static HTMLBuilder<Canvas, HTMLBuilder<X, Y>> Canvas<X, Y>(this HTMLBuilder<X, Y> builder)
             where X : Tag
@@ -273,10 +273,10 @@ namespace Tags
             where Y : HTMLBuilder
             => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Iframe(src));
 
-        public static HTMLBuilder<Img, HTMLBuilder<X, Y>> Img<X, Y>(this HTMLBuilder<X, Y> builder)
+        public static HTMLBuilder<Img, HTMLBuilder<X, Y>> Img<X, Y>(this HTMLBuilder<X, Y> builder, string src, string alt)
             where X : Tag
             where Y : HTMLBuilder
-            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Img());
+            => HTMLBuilderUtilities.AddTagIfAllowed(builder, new Img(src, alt));
 
         public static HTMLBuilder<Input, HTMLBuilder<X, Y>> Input<X, Y>(this HTMLBuilder<X, Y> builder, HTMLTags.Attributes.InputType inputType)
             where X : Tag

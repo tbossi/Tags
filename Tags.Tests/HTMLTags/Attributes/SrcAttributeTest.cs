@@ -12,9 +12,9 @@ namespace Tags.Tests.HTMLTags.Attributes
         [TestCase("")]
         [TestCase(null)]
         [TestCase("       ")]
-        public void AddSrc_ThrowsException(string cite)
+        public void AddSrc_ThrowsException(string url)
         {
-            Assert.Throws<ArgumentException>(() => Tag.Object.AddSrc(cite));
+            Assert.Throws<ArgumentException>(() => Tag.Object.AddSrc(url));
         }
 
         [Test]

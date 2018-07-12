@@ -3,7 +3,8 @@ using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
 {
-    public class Form : Tag, SupportAutocompleteAttribute, SupportNameAttribute
+    public class Form : Tag, SupportAutocompleteAttribute, SupportNameAttribute,
+        SupportTargetAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 

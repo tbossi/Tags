@@ -230,11 +230,11 @@ namespace Tags
             return builder;
         }
 
-        public static HTMLBuilder<X, Y> Kind<X, Y>(this HTMLBuilder<X, Y> builder, Kind kind)
+        public static HTMLBuilder<X, Y> Kind<X, Y>(this HTMLBuilder<X, Y> builder, Kind kind, string srclang = null)
             where X : Track
             where Y : HTMLBuilder
         {
-            builder.CurrentTag.AddKind(kind);
+            builder.CurrentTag.AddKind(kind, srclang);
             return builder;
         }
 
@@ -510,11 +510,35 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Srcset<X, Y>(this HTMLBuilder<X, Y> builder, string src)
+            where X : Tag, SupportSrcsetAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddSrcset(src);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Srcdoc<X, Y>(this HTMLBuilder<X, Y> builder, string srcdoc)
             where X : Iframe
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddSrcdoc(srcdoc);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Start<X, Y>(this HTMLBuilder<X, Y> builder, int start)
+            where X : Ol
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddStart(start);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Step<X, Y>(this HTMLBuilder<X, Y> builder, int step)
+            where X : Input
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddStep(step);
             return builder;
         }
 
@@ -531,6 +555,14 @@ namespace Tags
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddType(type);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Usemap<X, Y>(this HTMLBuilder<X, Y> builder, string id)
+            where X : Tag, SupportUsemapAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddUsemap(id);
             return builder;
         }
 

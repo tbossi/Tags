@@ -15,13 +15,13 @@ namespace Tags.Tests.HTMLTags
         [SetUp]
         public void SetUp()
         {
-            _tag = new Button();
+            _tag = new Button(ButtonType.Submit);
         }
 
         [Test]
         public void Ctor()
         {
-            Assert.AreEqual(_tag.ToString(), "<button></button>");
+            Assert.AreEqual(_tag.ToString(), "<button type=\"submit\"></button>");
         }
 
         [TestCase(typeof(SupportAutofocusAttribute))]

@@ -8,6 +8,9 @@ namespace Tags.HTMLTags
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
 
-        public Button() : base("button") { }
+        public Button(ButtonType type) : base("button")
+        {
+            TagBuilder.MergeAttribute("type", type.LiteralValue());
+        }
     }
 }
