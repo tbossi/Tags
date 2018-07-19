@@ -186,5 +186,7 @@
     <Content Include="HTMLTags\Attributes\SupportSrcsetAttribute.cs" />
     <Content Include="HTMLTags\Attributes\ButtonType.cs" />
     <Content Include="HTMLTags\Attributes\SupportUsemapAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\SupportStringValueAttribute.cs" />
+    <Content Include="HTMLTags\Attributes\Wrap.cs" />
   </ItemGroup>
 </Project>

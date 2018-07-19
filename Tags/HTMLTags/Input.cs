@@ -8,7 +8,8 @@ namespace Tags.HTMLTags
         SupportAutofocusAttribute, SupportDisabledAttribute, SupportFormAttribute,
         SupportHeightAttribute, SupportMaxLengthAttribute, SupportMultipleAttribute,
         SupportNameAttribute, SupportPlaceholderAttribute, SupportReadonlyAttribute,
-        SupportRequiredAttribute, SupportSizeAttribute, SupportSrcAttribute
+        SupportRequiredAttribute, SupportSizeAttribute, SupportSrcAttribute,
+        SupportStringValueAttribute, SupportWidthAttribute
     {
         private readonly Attributes.InputType _inputType;
 

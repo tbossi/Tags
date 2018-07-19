@@ -165,5 +165,6 @@
     <Content Include="HTMLTags\Attributes\SizeAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\SrcsetAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\UsemapAttributeTest.cs" />
+    <Content Include="HTMLTags\Attributes\StringValueAttributeTest.cs" />
   </ItemGroup>
 </Project>

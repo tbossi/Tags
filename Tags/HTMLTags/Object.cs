@@ -4,7 +4,8 @@ using Tags.HTMLTags.Attributes;
 namespace Tags.HTMLTags
 {
     public class Object : Tag, SupportFormAttribute, SupportHeightAttribute,
-        SupportNameAttribute, SupportMIMETypeAttribute, SupportUsemapAttribute
+        SupportNameAttribute, SupportMIMETypeAttribute, SupportUsemapAttribute,
+        SupportWidthAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Object() : base("object") { }

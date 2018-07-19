@@ -22,5 +22,10 @@ namespace Tags.HTMLTags
             if (rows < 0) { throw new ArgumentException(); }
             TagBuilder.MergeAttribute("rows", rows.ToString());
         }
+
+        public void AddWrap(Wrap wrap)
+        {
+            TagBuilder.MergeAttribute("wrap", wrap.LiteralValue());
+        }
     }
 }

@@ -574,11 +574,27 @@ namespace Tags
             return builder;
         }
 
+        public static HTMLBuilder<X, Y> Value<X, Y>(this HTMLBuilder<X, Y> builder, string value)
+            where X : Tag, SupportStringValueAttribute
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddValue(value);
+            return builder;
+        }
+
         public static HTMLBuilder<X, Y> Width<X, Y>(this HTMLBuilder<X, Y> builder, int width)
             where X : Tag, SupportWidthAttribute
             where Y : HTMLBuilder
         {
             builder.CurrentTag.AddWidth(width);
+            return builder;
+        }
+
+        public static HTMLBuilder<X, Y> Wrap<X, Y>(this HTMLBuilder<X, Y> builder, Wrap wrap)
+            where X : Textarea
+            where Y : HTMLBuilder
+        {
+            builder.CurrentTag.AddWrap(wrap);
             return builder;
         }
     }

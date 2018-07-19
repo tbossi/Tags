@@ -4,7 +4,7 @@ using Tags.HTMLTags.Attributes;
 namespace Tags.HTMLTags
 {
     public class Img : Tag, SupportHeightAttribute, SupportSrcsetAttribute,
-        SupportUsemapAttribute
+        SupportUsemapAttribute, SupportWidthAttribute
     {
         public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
 

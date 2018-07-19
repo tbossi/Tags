@@ -28,6 +28,7 @@ namespace Tags.Tests.HTMLTags
         [TestCase(typeof(SupportDisabledAttribute))]
         [TestCase(typeof(SupportFormAttribute))]
         [TestCase(typeof(SupportNameAttribute))]
+        [TestCase(typeof(SupportStringValueAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

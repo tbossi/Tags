@@ -38,6 +38,7 @@ namespace Tags.Tests.HTMLTags
         [TestCase(typeof(SupportMutedAttribute))]
         [TestCase(typeof(SupportPreloadAttribute))]
         [TestCase(typeof(SupportSrcAttribute))]
+        [TestCase(typeof(SupportWidthAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));

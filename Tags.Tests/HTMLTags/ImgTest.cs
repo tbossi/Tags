@@ -27,6 +27,7 @@ namespace Tags.Tests.HTMLTags
         [TestCase(typeof(SupportHeightAttribute))]
         [TestCase(typeof(SupportSrcsetAttribute))]
         [TestCase(typeof(SupportUsemapAttribute))]
+        [TestCase(typeof(SupportWidthAttribute))]
         public void SupportedAttributes(Type supportedType)
         {
             Assert.That(supportedType.IsAssignableFrom(_tag.GetType()));
