@@ -84,7 +84,7 @@ namespace Tags.Tests.Acceptance
         {
             return
             "<html><head><meta></head>" +
-            "<body><div class=\"{xl-12} wrapper\" id=\"wrapperId\"><p>Some text inside a &lt;p&gt; tag</p>" +
+            "<body><div class=\"xl-12 wrapper\" id=\"wrapperId\"><p>Some text inside a &lt;p&gt; tag</p>" +
             "<a class=\"qwerty\" href=\"https://just.a.link\">Click to open this link</a>" +
             "<div class=\"container\" data-key=\"value\"><blockquote>This is a cool way to build HTML!</blockquote></div>" +
             "</div><script src=\"https://link.to/script.js\"></script></body></html>";
