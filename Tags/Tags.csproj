@@ -188,5 +188,11 @@
     <Content Include="HTMLTags\Attributes\SupportUsemapAttribute.cs" />
     <Content Include="HTMLTags\Attributes\SupportStringValueAttribute.cs" />
     <Content Include="HTMLTags\Attributes\Wrap.cs" />
+    <Content Include="StringEncoder\StringEncoder.cs" />
+    <Content Include="Encoders\StringEncoder.cs" />
+    <Content Include="Encoders\PassThroughEncoder.cs" />
+    <Content Include="Encoders\AttributeEncoder.cs" />
+    <Content Include="Encoders\ContentEncoder.cs" />
+    <Content Include="Exception\ExceptionMessages.cs" />
   </ItemGroup>
 </Project>

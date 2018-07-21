@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddWidth(this SupportWidthAttribute tag, int width)
         {
             if (width < 0) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("width", width.ToString());
+            tag.AddAttribute("width", width.ToString());
         }
     }
 }

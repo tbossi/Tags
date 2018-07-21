@@ -11,39 +11,39 @@ namespace Tags.HTMLTags
 
         public Meter(double value) : base("meter")
         {
-            TagBuilder.MergeAttribute("value", value.ToString());
+            AddAttribute("value", value.ToString());
         }
 
         public void AddMin(double value)
         {
             if (value > _low || value > _high || value > _max) { throw new ArgumentException(); }
             _min = value;
-            TagBuilder.MergeAttribute("min", _min.Value.ToString());
+            AddAttribute("min", _min.Value.ToString());
         }
 
         public void AddMax(double value)
         {
             if (value < _min || value < _low || value < _high) { throw new ArgumentException(); }
             _max = value;
-            TagBuilder.MergeAttribute("max", _max.Value.ToString());
+            AddAttribute("max", _max.Value.ToString());
         }
 
         public void AddLow(double value)
         {
             if (value < _min || value > _high || value > _max) { throw new ArgumentException(); }
             _low = value;
-            TagBuilder.MergeAttribute("low", _low.Value.ToString());
+            AddAttribute("low", _low.Value.ToString());
         }
         public void AddHigh(double value)
         {
             if (value < _min || value < _low || value > _max) { throw new ArgumentException(); }
             _high = value;
-            TagBuilder.MergeAttribute("high", _high.Value.ToString());
+            AddAttribute("high", _high.Value.ToString());
         }
 
         public void AddOptimum(double value)
         {
-            TagBuilder.MergeAttribute("optimum", value.ToString());            
+            AddAttribute("optimum", value.ToString());            
         }
     }
 }

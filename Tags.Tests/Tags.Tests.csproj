@@ -166,5 +166,13 @@
     <Content Include="HTMLTags\Attributes\SrcsetAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\UsemapAttributeTest.cs" />
     <Content Include="HTMLTags\Attributes\StringValueAttributeTest.cs" />
+    <Content Include="Encoders\AttributeEncoderTest.cs" />
+    <Content Include="Encoders\ContentEncoderTest.cs" />
+    <Content Include="Encoders\PassThroughEncoderTest.cs" />
+    <Content Include="Acceptance\HTMLBuilderTimeTest.cs" />
+    <Content Include="Acceptance\HTMLBuilderPerformanceTest.cs" />
+    <Content Include="Acceptance\HTMLTestSample.cs" />
+    <Content Include="Acceptance\HTMLTestSamples.cs" />
+    <Content Include="Acceptance\HTMLBuilderAcceptanceTest.cs" />
   </ItemGroup>
 </Project>

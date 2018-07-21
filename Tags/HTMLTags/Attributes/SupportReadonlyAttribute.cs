@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddReadonly(this SupportReadonlyAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("readonly", "readonly");
+            tag.AddAttribute("readonly", "readonly");
         }
     }
 }

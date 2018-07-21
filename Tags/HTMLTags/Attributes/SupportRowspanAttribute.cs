@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddRowspan(this SupportRowspanAttribute tag, int value)
         {
             if (value < 0) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("rowspan", value.ToString());
+            tag.AddAttribute("rowspan", value.ToString());
         }
     }
 }

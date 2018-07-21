@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddTarget(this SupportTargetAttribute tag, Target target)
         {
-            tag.TagBuilder.MergeAttribute("target", target.LiteralValue());
+            tag.AddAttribute("target", target.LiteralValue());
         }
     }
 }

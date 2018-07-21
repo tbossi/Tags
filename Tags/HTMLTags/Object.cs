@@ -12,7 +12,7 @@ namespace Tags.HTMLTags
 
         public void AddData(string data)
         {
-            TagBuilder.MergeAttribute("data", data);
+            AddAttribute("data", data);
         }
     }
 }

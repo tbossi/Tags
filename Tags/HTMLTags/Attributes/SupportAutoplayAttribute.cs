@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddAutoplay(this SupportAutoplayAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("autoplay", "autoplay");
+            tag.AddAttribute("autoplay", "autoplay");
         }
     }
 }

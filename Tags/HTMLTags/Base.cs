@@ -9,13 +9,13 @@ namespace Tags.HTMLTags
 
         public Base(string href, Target? target = null) : base("base")
         {
-            if (!string.IsNullOrEmpty(href)) { TagBuilder.MergeAttribute("href", href); }
-            if (target.HasValue) { TagBuilder.MergeAttribute("target", target.Value.LiteralValue()); }
+            if (!string.IsNullOrEmpty(href)) { AddAttribute("href", href); }
+            if (target.HasValue) { AddAttribute("target", target.Value.LiteralValue()); }
         }
 
         public Base(Target target) : base("base")
         {
-            TagBuilder.MergeAttribute("target", target.LiteralValue());
+            AddAttribute("target", target.LiteralValue());
         }
     }
 }

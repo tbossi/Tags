@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddPlaceholder(this SupportPlaceholderAttribute tag, string placeholder)
         {
-            tag.TagBuilder.MergeAttribute("placeholder", placeholder);
+            tag.AddAttribute("placeholder", placeholder);
         }
     }
 }

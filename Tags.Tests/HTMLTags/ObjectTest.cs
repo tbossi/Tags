@@ -38,13 +38,13 @@ namespace Tags.Tests.HTMLTags
         public void AddData()
         {
             _tag.AddData("file.swf");
-            Assert.AreEqual(_tag.ToString(), "<object data=\"file.sfw\"></object>");
+            Assert.AreEqual(_tag.ToString(), "<object data=\"file.swf\"></object>");
         }
 
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, Tags.HTMLTags.TagRenderMode.Normal);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Tags.Tests.HTMLTags
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(new Dd().TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(new Dd().TagRenderMode, Tags.HTMLTags.TagRenderMode.Normal);
         }
     }
 }

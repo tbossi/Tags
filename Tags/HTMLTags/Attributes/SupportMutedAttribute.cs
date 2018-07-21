@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddMuted(this SupportMutedAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("muted", "muted");
+            tag.AddAttribute("muted", "muted");
         }
     }
 }

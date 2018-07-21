@@ -10,7 +10,7 @@ namespace Tags.HTMLTags
 
         public virtual void AddOpen()
         {
-            TagBuilder.MergeAttribute("open", "open");
+            AddAttribute("open", "open");
         }
     }
 }

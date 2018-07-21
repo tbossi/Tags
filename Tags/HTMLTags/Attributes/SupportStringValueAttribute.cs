@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddValue(this SupportStringValueAttribute tag, string value)
         {
-            tag.TagBuilder.MergeAttribute("value", value);
+            tag.AddAttribute("value", value);
         }
     }
 }

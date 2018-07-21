@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddMultiple(this SupportMultipleAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("multiple", "multiple");
+            tag.AddAttribute("multiple", "multiple");
         }
     }
 }

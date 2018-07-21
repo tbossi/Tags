@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddAutofocus(this SupportAutofocusAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("autofocus", "autofocus");
+            tag.AddAttribute("autofocus", "autofocus");
         }
     }
 }

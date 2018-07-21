@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddLabel(this SupportLabelAttribute tag, string label)
         {
-            tag.TagBuilder.MergeAttribute("label", label);
+            tag.AddAttribute("label", label);
         }
     }
 }

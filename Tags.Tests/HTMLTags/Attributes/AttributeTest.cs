@@ -1,21 +1,24 @@
 using System;
 using Moq;
 using NUnit.Framework;
+using Tags.Encoders;
 using Tags.HTMLTags;
-using System.Web.Mvc;
+using Tags.Test;
+//using System.Web.Mvc;
 
 namespace Tags.Tests.HTMLTags.Attributes
 {
     public abstract class AttributeTest<T> where T : class, ITag
     {
+        private TestTag _testTag;
+
         protected Mock<T> Tag;
-        protected TagBuilder Builder;
 
         [SetUp]
         public virtual void SetUp()
         {
             Tag = new Mock<T>();
-            Builder = new TagBuilder("test");
+            _testTag = new TestTag("test");
         }
 
         [TearDown]
@@ -26,10 +29,11 @@ namespace Tags.Tests.HTMLTags.Attributes
 
         protected void AssertAttributeAdded(Action<T> actionToTest, string expectedResult)
         {
-            Tag.Setup(t => t.TagBuilder).Returns(Builder).Verifiable();
+            Tag.Setup(t => t.AddAttribute(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<StringEncoder>()))
+            .Callback((string k, string v, StringEncoder enc) => _testTag.AddAttribute(k, v, enc)).Verifiable();
 
             actionToTest.Invoke(Tag.Object);
-            Assert.AreEqual(Builder.ToString(), expectedResult);
+            Assert.AreEqual(expectedResult, _testTag.ToString());
         }
     }
 }

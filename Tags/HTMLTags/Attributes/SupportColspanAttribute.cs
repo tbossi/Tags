@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddColspan(this SupportColspanAttribute tag, int value)
         {
             if (value < 0) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("colspan", value.ToString());
+            tag.AddAttribute("colspan", value.ToString());
         }
     }
 }

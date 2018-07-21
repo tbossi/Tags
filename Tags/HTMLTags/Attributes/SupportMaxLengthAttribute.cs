@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddMaxLength(this SupportMaxLengthAttribute tag, int maxlength)
         {
             if (maxlength < 0) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("maxlength", maxlength.ToString());
+            tag.AddAttribute("maxlength", maxlength.ToString());
         }
     }
 }

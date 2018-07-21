@@ -9,12 +9,12 @@ namespace Tags.HTMLTags
 
         public virtual void AddReversed()
         {
-            TagBuilder.MergeAttribute("reversed", "reversed");
+            AddAttribute("reversed", "reversed");
         }
 
         public virtual void AddStart(int start)
         {
-            TagBuilder.MergeAttribute("start", start.ToString());
+            AddAttribute("start", start.ToString());
         }
     }
 }

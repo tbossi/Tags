@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Web.Mvc;
+using Tags.Encoders;
 using Tags.HTMLTags.Attributes;
 
 namespace Tags.HTMLTags
@@ -12,12 +13,12 @@ namespace Tags.HTMLTags
 
         public Iframe(string src) : base("iframe")
         {
-            TagBuilder.MergeAttribute("src", src);
+            AddAttribute("src", src);
         }
 
         public void AddSrcdoc(string srcdoc)
         {
-            TagBuilder.MergeAttribute("srcdoc", srcdoc);
+            AddAttribute("srcdoc", srcdoc, new PassThroughEncoder());
         }
 
         public void AddSandbox(params Sandbox[] sandbox)
@@ -29,7 +30,7 @@ namespace Tags.HTMLTags
                 builder.Append(" ");
             }
 
-            TagBuilder.MergeAttribute("sandbox", builder.ToString().Trim());
+            AddAttribute("sandbox", builder.ToString().Trim());
         }
     }
 }

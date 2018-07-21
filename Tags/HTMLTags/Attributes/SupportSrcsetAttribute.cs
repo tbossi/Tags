@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddSrcset(this SupportSrcsetAttribute tag, string srcset)
         {
             if (string.IsNullOrWhiteSpace(srcset)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("srcset", srcset);
+            tag.AddAttribute("srcset", srcset);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddDisabled(this SupportDisabledAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("disabled", "disabled");
+            tag.AddAttribute("disabled", "disabled");
         }
     }
 }

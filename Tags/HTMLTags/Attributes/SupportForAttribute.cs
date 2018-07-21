@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddFor(this SupportForAttribute tag, string id)
         {
             if (string.IsNullOrWhiteSpace(id)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("for", id);
+            tag.AddAttribute("for", id);
         }
     }
 }

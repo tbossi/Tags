@@ -5,7 +5,7 @@ namespace Tags.HTMLTags
 {
     public class Param : Tag, SupportNameAttribute, SupportStringValueAttribute
     {
-        public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
+        public override TagRenderMode TagRenderMode => TagRenderMode.SelfClosing;
         public Param() : base("param") { }
     }
 }

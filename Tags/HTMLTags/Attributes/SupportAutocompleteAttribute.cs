@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddAutocomplete(this SupportAutocompleteAttribute tag, bool autocomplete)
         {
-            tag.TagBuilder.MergeAttribute("autocomplete", autocomplete ? "on" : "off");
+            tag.AddAttribute("autocomplete", autocomplete ? "on" : "off");
         }
     }
 }

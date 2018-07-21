@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddLoop(this SupportLoopAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("loop", "loop");
+            tag.AddAttribute("loop", "loop");
         }
     }
 }

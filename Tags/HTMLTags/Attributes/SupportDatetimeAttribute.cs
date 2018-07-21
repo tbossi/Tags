@@ -8,7 +8,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddDatetime(this SupportDatetimeAttribute tag, DateTime datetime)
         {
-            tag.TagBuilder.MergeAttribute("datetime", datetime.ToString("u"));
+            tag.AddAttribute("datetime", datetime.ToString("u"));
         }
     }
 }

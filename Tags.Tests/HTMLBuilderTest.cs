@@ -28,12 +28,24 @@ namespace Tags.Test
         }
 
         [Test]
-        public void StoreTag()
+        public void StoreTag_NoParent()
         {
             var tagToStore = new Mock<Tag>("test");
             var newBuilder = _htmlTag.StoreTag(tagToStore.Object);
-
+            
             Assert.AreEqual(newBuilder.CurrentTag, tagToStore.Object);
+        }
+
+        [Test]
+        public void StoreTag()
+        {
+            var tagToStore = new TestTag("test");
+            var tagToStore2 = new TestTag("test");
+            var newBuilder = _htmlTag.StoreTag(tagToStore);
+            var lastBuilder = newBuilder.StoreTag(tagToStore2);
+            
+            Assert.AreEqual(newBuilder.CurrentTag, tagToStore);
+            Assert.AreEqual(newBuilder.CurrentTag.Content[0], tagToStore2);
         }
 
         [Test]
@@ -84,7 +96,7 @@ namespace Tags.Test
             const string class3 = "class3";
 
             CommonAssert(builder => builder.Class(class1, class2, class3),
-                $"<test class=\"{class3} {class2} {class1}\"></test>");
+                $"<test class=\"{class1} {class2} {class3}\"></test>");
         }
 
         [Test]
@@ -114,12 +126,12 @@ namespace Tags.Test
 
         private void CommonAssert(Func<HTMLBuilder<Tag, HTMLBuilder<Tag, HTMLBuilder>>, HTMLBuilder<Tag, HTMLBuilder<Tag, HTMLBuilder>>> actionToTest, string expectedResult)
         {
-            var tag = new Mock<Tag>("test");
+            var tag = (Tag) new TestTag("test");
 
-            var builder = _htmlTag.StoreTag(tag.Object);
+            var builder = _htmlTag.StoreTag(tag);
             var actualHtmlTag = actionToTest.Invoke(builder);
-            Assert.AreEqual(actualHtmlTag, builder);
-            Assert.AreEqual(actualHtmlTag.End().ToString(), expectedResult);
+            Assert.AreEqual(builder, actualHtmlTag);
+            Assert.AreEqual(expectedResult, actualHtmlTag.End().ToString());
         }
     }
 }

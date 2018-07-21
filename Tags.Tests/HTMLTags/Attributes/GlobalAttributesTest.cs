@@ -27,17 +27,7 @@ namespace Tags.Tests.HTMLTags.Attributes
         [Test]
         public void AddClasses()
         {
-            AssertAttributeAdded(tag => tag.AddClasses("class1", "other", null, "class1", "", "ccc"), "<test class=\"ccc other class1\"></test>");
-        }
-
-        [Test]
-        public void AddClasses_MultipleCalls()
-        {
-            AssertAttributeAdded(tag =>
-            {
-                tag.AddClasses("class1", "other");
-                tag.AddClasses("ccc");
-            }, "<test class=\"ccc other class1\"></test>");
+            AssertAttributeAdded(tag => tag.AddClasses("class1", "other", null, "class1", "", "ccc"), "<test class=\"class1 other ccc\"></test>");
         }
 
         [TestCase("")]

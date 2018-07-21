@@ -9,7 +9,7 @@ namespace Tags.HTMLTags
         public ExternalScript(string src) : base()
         {
             if (string.IsNullOrWhiteSpace(src)) { throw new ArgumentException(); }
-            TagBuilder.MergeAttribute("src", src);
+            AddAttribute("src", src);
         }
 
         public void AddExecution(Execution execution)
@@ -17,10 +17,10 @@ namespace Tags.HTMLTags
             switch (execution)
             {
                 case Execution.Async:
-                    TagBuilder.MergeAttribute("async", "async");
+                    AddAttribute("async", "async");
                     break;
                 case Execution.Defer:
-                    TagBuilder.MergeAttribute("defer", "defer");
+                    AddAttribute("defer", "defer");
                     break;
             }
         }

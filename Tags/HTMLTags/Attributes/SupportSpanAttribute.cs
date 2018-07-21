@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddSpan(this SupportSpanAttribute tag, int span)
         {
             if (span < 0) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("span", span.ToString());
+            tag.AddAttribute("span", span.ToString());
         }
     }
 }

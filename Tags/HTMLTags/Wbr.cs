@@ -4,7 +4,7 @@ namespace Tags.HTMLTags
 {
     public class Wbr : Tag
     {
-        public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
+        public override TagRenderMode TagRenderMode => TagRenderMode.SelfClosing;
         public Wbr() : base("wbr") { }
     }
 }

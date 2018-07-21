@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddControls(this SupportControlsAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("controls", "controls");
+            tag.AddAttribute("controls", "controls");
         }
     }
 }

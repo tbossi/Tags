@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddAlt(this SupportAltAttribute tag, string alt)
         {
             if (string.IsNullOrWhiteSpace(alt)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("alt", alt);
+            tag.AddAttribute("alt", alt);
         }
     }
 }

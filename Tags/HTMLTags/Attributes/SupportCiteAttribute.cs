@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddCite(this SupportCiteAttribute tag, string cite)
         {
             if (string.IsNullOrWhiteSpace(cite)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("cite", cite);
+            tag.AddAttribute("cite", cite);
         }
     }
 }

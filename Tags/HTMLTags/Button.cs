@@ -10,7 +10,7 @@ namespace Tags.HTMLTags
 
         public Button(ButtonType type) : base("button")
         {
-            TagBuilder.MergeAttribute("type", type.LiteralValue());
+            AddAttribute("type", type.LiteralValue());
         }
     }
 }

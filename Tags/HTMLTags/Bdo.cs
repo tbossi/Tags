@@ -9,7 +9,7 @@ namespace Tags.HTMLTags
 
         public Bdo(Dir dir) : base("bdo")
         {
-            TagBuilder.MergeAttribute("dir", dir.LiteralValue());
+            AddAttribute("dir", dir.LiteralValue());
         }
     }
 }

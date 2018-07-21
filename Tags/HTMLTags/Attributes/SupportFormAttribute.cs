@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddForm(this SupportFormAttribute tag, string id)
         {
             if (string.IsNullOrWhiteSpace(id)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("form", id);
+            tag.AddAttribute("form", id);
         }
     }
 }

@@ -5,21 +5,21 @@ namespace Tags.HTMLTags
 {
     public class Link : Tag, SupportMediaQueryAttribute, SupportMIMETypeAttribute
     {
-        public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
+        public override TagRenderMode TagRenderMode => TagRenderMode.SelfClosing;
 
         public Link(string href) : base("link")
         {
-            TagBuilder.MergeAttribute("href", href);
+            AddAttribute("href", href);
         }
 
         public virtual void AddRel(LinkRel rel)
         {
-            TagBuilder.MergeAttribute("rel", rel.LiteralValue());
+            AddAttribute("rel", rel.LiteralValue());
         }
 
         public virtual void AddCrossorigin(Crossorigin crossorigin)
         {
-            TagBuilder.MergeAttribute("crossorigin", crossorigin.LiteralValue());
+            AddAttribute("crossorigin", crossorigin.LiteralValue());
         }
     }
 }

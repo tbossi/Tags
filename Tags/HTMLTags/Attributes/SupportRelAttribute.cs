@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddRel(this SupportRelAttribute tag, Rel rel)
         {
-            tag.TagBuilder.MergeAttribute("rel", rel.LiteralValue());
+            tag.AddAttribute("rel", rel.LiteralValue());
         }
     }
 }

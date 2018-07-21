@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddDownload(this SupportDownloadAttribute tag, string newFileName)
         {
-            tag.TagBuilder.MergeAttribute("download", newFileName);
+            tag.AddAttribute("download", newFileName);
         }
     }
 }

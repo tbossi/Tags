@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddHeight(this SupportHeightAttribute tag, int height)
         {
             if (height < 0) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("height", height.ToString());
+            tag.AddAttribute("height", height.ToString());
         }
     }
 }

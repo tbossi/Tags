@@ -11,7 +11,7 @@ namespace Tags.HTMLTags
 
         public virtual void AddScope(Scope scope)
         {
-            TagBuilder.MergeAttribute("scope", scope.LiteralValue());
+            AddAttribute("scope", scope.LiteralValue());
         }
     }
 }

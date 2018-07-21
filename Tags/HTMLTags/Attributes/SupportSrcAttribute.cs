@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddSrc(this SupportSrcAttribute tag, string src)
         {
             if (string.IsNullOrWhiteSpace(src)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("src", src);
+            tag.AddAttribute("src", src);
         }
     }
 }

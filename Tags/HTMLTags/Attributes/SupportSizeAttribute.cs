@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddSize(this SupportSizeAttribute tag, int value)
         {
             if (value < 0) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("size", value.ToString());
+            tag.AddAttribute("size", value.ToString());
         }
     }
 }

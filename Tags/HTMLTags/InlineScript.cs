@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using Tags.Encoders;
 
 namespace Tags.HTMLTags
 {
@@ -6,7 +7,7 @@ namespace Tags.HTMLTags
     {
         public InlineScript(string script) : base()
         {
-            TagBuilder.InnerHtml = script;
+            Content.Add(new Text(script, new PassThroughEncoder()));
         }
     }
 }

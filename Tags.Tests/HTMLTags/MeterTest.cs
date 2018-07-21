@@ -48,7 +48,7 @@ namespace Tags.Tests.HTMLTags
         [Test]
         public void AddHigh()
         {
-            _tag.AddMax(10.59);
+            _tag.AddHigh(10.59);
             Assert.AreEqual(_tag.ToString(), "<meter high=\"10.59\" value=\"5\"></meter>");
         }
 
@@ -68,7 +68,7 @@ namespace Tags.Tests.HTMLTags
         [Test]
         public void TagRenderMode()
         {
-            Assert.AreEqual(_tag.TagRenderMode, System.Web.Mvc.TagRenderMode.Normal);
+            Assert.AreEqual(_tag.TagRenderMode, Tags.HTMLTags.TagRenderMode.Normal);
         }
     }
 }

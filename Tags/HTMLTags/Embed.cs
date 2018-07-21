@@ -5,11 +5,11 @@ namespace Tags.HTMLTags
 {
     public class Embed : Tag, SupportHeightAttribute, SupportWidthAttribute, SupportMIMETypeAttribute
     {
-        public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
+        public override TagRenderMode TagRenderMode => TagRenderMode.SelfClosing;
 
         public Embed(string src) : base("embed")
         {
-            TagBuilder.MergeAttribute("src", src);
+            AddAttribute("src", src);
         }
     }
 }

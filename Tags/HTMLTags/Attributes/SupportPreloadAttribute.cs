@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddPreload(this SupportPreloadAttribute tag, Preload preload)
         {
-            tag.TagBuilder.MergeAttribute("preload", preload.LiteralValue());
+            tag.AddAttribute("preload", preload.LiteralValue());
         }
     }
 }

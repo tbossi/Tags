@@ -14,18 +14,18 @@ namespace Tags.HTMLTags
         public void AddCols(int cols)
         {
             if (cols < 0) { throw new ArgumentException(); }
-            TagBuilder.MergeAttribute("cols", cols.ToString());
+            AddAttribute("cols", cols.ToString());
         }
 
         public void AddRows(int rows)
         {
             if (rows < 0) { throw new ArgumentException(); }
-            TagBuilder.MergeAttribute("rows", rows.ToString());
+            AddAttribute("rows", rows.ToString());
         }
 
         public void AddWrap(Wrap wrap)
         {
-            TagBuilder.MergeAttribute("wrap", wrap.LiteralValue());
+            AddAttribute("wrap", wrap.LiteralValue());
         }
     }
 }

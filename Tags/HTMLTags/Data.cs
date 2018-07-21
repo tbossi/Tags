@@ -7,7 +7,7 @@ namespace Tags.HTMLTags
         public override TagRenderMode TagRenderMode => TagRenderMode.Normal;
         public Data(string value) : base("data")
         {
-            TagBuilder.MergeAttribute("value", value);
+            AddAttribute("value", value);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Tags
         public override sealed string ToString()
         {
             var sb = new StringBuilder();
-            _storedTags.ForEach(t => sb.Append(t));
+            _storedTags.ForEach(t => { sb = t.Render(sb); });
             return sb.ToString();
         }
     }
@@ -46,6 +46,7 @@ namespace Tags
         public virtual HTMLBuilder<T, HTMLBuilder<CurrentTagType, ParentBuilderType>> StoreTag<T>(T tag) where T : Tag
         {
             base.StoreTag(tag);
+            if (_parentTag != null) { CurrentTag.AddInnerHtml(tag); }
             return new HTMLBuilder<T, HTMLBuilder<CurrentTagType, ParentBuilderType>>(tag, this);
         }
 

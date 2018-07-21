@@ -12,7 +12,7 @@ namespace Tags.HTMLTags
 
         public virtual void AddPoster(string url)
         {
-            TagBuilder.MergeAttribute("poster", url);
+            AddAttribute("poster", url);
         }
     }
 }

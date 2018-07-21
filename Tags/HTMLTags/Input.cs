@@ -1,4 +1,3 @@
-using System.Web.Mvc;
 using Tags.Exception;
 using Tags.HTMLTags.Attributes;
 
@@ -11,28 +10,28 @@ namespace Tags.HTMLTags
         SupportRequiredAttribute, SupportSizeAttribute, SupportSrcAttribute,
         SupportStringValueAttribute, SupportWidthAttribute
     {
-        private readonly Attributes.InputType _inputType;
+        private readonly InputType _inputType;
 
-        public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
+        public override TagRenderMode TagRenderMode => TagRenderMode.SelfClosing;
 
-        public Input(Attributes.InputType inputType) : base("input")
+        public Input(InputType inputType) : base("input")
         {
             _inputType = inputType;
-            TagBuilder.MergeAttribute("type", _inputType.LiteralValue());
+            AddAttribute("type", _inputType.LiteralValue());
         }
 
         public virtual void AddAccept(string fileType)
         {
-            TagBuilder.MergeAttribute("accept", fileType);
+            AddAttribute("accept", fileType);
         }
 
         public virtual void AddChecked()
         {
             switch (_inputType)
             {
-                case Attributes.InputType.Checkbox:
-                case Attributes.InputType.Radio:
-                    TagBuilder.MergeAttribute("checked", "checked");
+                case InputType.Checkbox:
+                case InputType.Radio:
+                    AddAttribute("checked", "checked");
                     break;
                 default:
                     throw new InvalidAttribute("checked", this);
@@ -41,21 +40,21 @@ namespace Tags.HTMLTags
 
         public virtual void AddList(string datalistId)
         {
-            TagBuilder.MergeAttribute("list", datalistId);
+            AddAttribute("list", datalistId);
         }
 
         public virtual void AddPattern(string pattern)
         {
             switch (_inputType)
             {
-                case Attributes.InputType.Date:
-                case Attributes.InputType.Email:
-                case Attributes.InputType.Password:
-                case Attributes.InputType.Search:
-                case Attributes.InputType.Tel:
-                case Attributes.InputType.Text:
-                case Attributes.InputType.Url:
-                    TagBuilder.MergeAttribute("pattern", pattern);
+                case InputType.Date:
+                case InputType.Email:
+                case InputType.Password:
+                case InputType.Search:
+                case InputType.Tel:
+                case InputType.Text:
+                case InputType.Url:
+                    AddAttribute("pattern", pattern);
                     break;
                 default:
                     throw new InvalidAttribute("pattern", this);
@@ -66,14 +65,14 @@ namespace Tags.HTMLTags
         {
             switch (_inputType)
             {
-                case Attributes.InputType.Date:
-                case Attributes.InputType.DatetimeLocal:
-                case Attributes.InputType.Month:
-                case Attributes.InputType.Number:
-                case Attributes.InputType.Range:
-                case Attributes.InputType.Time:
-                case Attributes.InputType.Week:
-                    TagBuilder.MergeAttribute("step", step.ToString());
+                case InputType.Date:
+                case InputType.DatetimeLocal:
+                case InputType.Month:
+                case InputType.Number:
+                case InputType.Range:
+                case InputType.Time:
+                case InputType.Week:
+                    AddAttribute("step", step.ToString());
                     break;
                 default:
                     throw new InvalidAttribute("step", this);

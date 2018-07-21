@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddValue(this SupportNumberValueAttribute tag, int value)
         {
             if (value < 0) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("value", value.ToString());
+            tag.AddAttribute("value", value.ToString());
         }
     }
 }

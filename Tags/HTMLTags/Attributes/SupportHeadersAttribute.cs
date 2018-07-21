@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddHeaders(this SupportHeadersAttribute tag, string headers)
         {
             if (string.IsNullOrWhiteSpace(headers)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("headers", headers);
+            tag.AddAttribute("headers", headers);
         }
     }
 }

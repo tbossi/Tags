@@ -9,7 +9,7 @@ namespace Tags.HTMLTags.Attributes
         public static void AddUsemap(this SupportUsemapAttribute tag, string id)
         {
             if (string.IsNullOrWhiteSpace(id)) { throw new ArgumentException(); }
-            tag.TagBuilder.MergeAttribute("usemap", id);
+            tag.AddAttribute("usemap", id);
         }
     }
 }

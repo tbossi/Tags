@@ -12,26 +12,26 @@ namespace Tags.HTMLTags
 
         public virtual void AddMethod(Method method, EncType? enctype = null)
         {
-            TagBuilder.MergeAttribute("method", method.LiteralValue());
+            AddAttribute("method", method.LiteralValue());
             if (method == Method.POST && enctype.HasValue)
             {
-                TagBuilder.MergeAttribute("enctype", enctype.Value.LiteralValue());
+                AddAttribute("enctype", enctype.Value.LiteralValue());
             }
         }
 
         public virtual void AddAcceptCharset(Charset charset)
         {
-            TagBuilder.MergeAttribute("accept-charset", charset.LiteralValue());
+            AddAttribute("accept-charset", charset.LiteralValue());
         }
 
         public virtual void AddAction(string action)
         {
-            TagBuilder.MergeAttribute("action", action);
+            AddAttribute("action", action);
         }
 
         public virtual void AddNoValidate()
         {
-            TagBuilder.MergeAttribute("novalidate", "novalidate");
+            AddAttribute("novalidate", "novalidate");
         }
     }
 }

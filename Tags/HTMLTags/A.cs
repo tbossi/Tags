@@ -10,7 +10,7 @@ namespace Tags.HTMLTags
 
         public A(string href) : base("a")
         {
-            if (!string.IsNullOrEmpty(href)) { TagBuilder.MergeAttribute("href", href); }
+            if (!string.IsNullOrEmpty(href)) { AddAttribute("href", href); }
         }        
     }
 }

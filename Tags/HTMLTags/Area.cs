@@ -6,23 +6,23 @@ namespace Tags.HTMLTags
     public class Area : Tag, SupportAltAttribute, SupportTargetAttribute,
         SupportDownloadAttribute, SupportMediaQueryAttribute, SupportRelAttribute
     {
-        public override TagRenderMode TagRenderMode => TagRenderMode.StartTag;
+        public override TagRenderMode TagRenderMode => TagRenderMode.SelfClosing;
 
         public Area() : base("area") { }
 
         public virtual void AddCoords(string coords)
         {
-            TagBuilder.MergeAttribute("coords", coords);
+            AddAttribute("coords", coords);
         }
 
         public virtual void AddHref(string href)
         {
-            TagBuilder.MergeAttribute("href", href);
+            AddAttribute("href", href);
         }
 
         public virtual void AddShape(Shape shape)
         {
-            TagBuilder.MergeAttribute("shape", shape.LiteralValue());
+            AddAttribute("shape", shape.LiteralValue());
         }
     }
 }

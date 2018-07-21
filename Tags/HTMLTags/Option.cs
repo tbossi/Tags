@@ -11,7 +11,7 @@ namespace Tags.HTMLTags
 
         public virtual void AddSelected()
         {
-            TagBuilder.MergeAttribute("selected", "selected");
+            AddAttribute("selected", "selected");
         }
     }
 }

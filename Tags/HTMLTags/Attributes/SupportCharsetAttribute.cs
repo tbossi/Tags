@@ -8,7 +8,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddCharset(this SupportCharsetAttribute tag, Charset charset)
         {
-            tag.TagBuilder.MergeAttribute("charset", charset.LiteralValue());
+            tag.AddAttribute("charset", charset.LiteralValue());
         }
     }
 }

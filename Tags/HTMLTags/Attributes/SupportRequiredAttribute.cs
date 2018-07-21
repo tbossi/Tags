@@ -6,7 +6,7 @@ namespace Tags.HTMLTags.Attributes
     {
         public static void AddRequired(this SupportRequiredAttribute tag)
         {
-            tag.TagBuilder.MergeAttribute("required", "required");
+            tag.AddAttribute("required", "required");
         }
     }
 }
